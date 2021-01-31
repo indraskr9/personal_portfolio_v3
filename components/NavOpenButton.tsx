@@ -15,6 +15,7 @@ const NavOpenButton = () => {
       whileTap={{
         scale: 0.8,
       }}
+      id='nav-opener'
       className='absolute right-0 w-10 h-10 bg-primary flex justify-center items-center cursor-pointer hover:bg-primaryDark transition'
       onClick={() => {
         setIsNavOpen(!isNavOpen)

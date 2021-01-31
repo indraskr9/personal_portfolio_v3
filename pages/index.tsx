@@ -3,6 +3,7 @@ import NavOpenButton from 'components/NavOpenButton'
 import {UiContext} from 'context/ui'
 import {motion, Variants} from 'framer-motion'
 import Head from 'next/head'
+import Link from 'next/link'
 import {useContext} from 'react'
 
 export default function Home() {
@@ -17,6 +18,14 @@ export default function Home() {
       opacity: 1,
       transition: {staggerChildren: 0.3},
     },
+
+    exit: {
+      y: '100%',
+      opacity: 0,
+      transition: {
+        type: 'spring',
+      },
+    },
   }
 
   const ItemVariants: Variants = {
@@ -28,7 +37,7 @@ export default function Home() {
     end: {
       opacity: 1,
       y: '0%',
-      transition: {type: 'tween', duration: 0.7},
+      transition: {type: 'spring', stiffness: 70, damping: 12, duration: 0.5},
     },
   }
 
@@ -48,6 +57,7 @@ export default function Home() {
           isNavOpen && setIsNavOpen(!isNavOpen)
         }}>
         <motion.div
+          exit='exit'
           variants={ContainerVariants}
           initial='start'
           animate='end'
@@ -77,7 +87,7 @@ export default function Home() {
           <motion.button
             variants={ItemVariants}
             className='mt-5 bg-primary text-primaryDark px-3 py-2 rounded-full font-medium'>
-            Get in touch
+            <Link href='/about'>Get in touch</Link>
           </motion.button>
         </motion.div>
       </div>

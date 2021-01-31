@@ -39,6 +39,7 @@ const NavDrawar = () => {
       initial={false}
       animate={isNavOpen ? 'show' : 'hide'}
       variants={ContainerVariants}
+      id='nav-drawar'
       className={`fixed right-0 z-10 bg-primary w-full sm:w-2/4 md:w-1/4 ${
         !isNavOpen && 'invisible'
       }`}>
@@ -62,7 +63,7 @@ const NavDrawar = () => {
           </svg>
         </div>
 
-        <div className='text-center font-semibold text-primaryDark text-5xl'>
+        <div className='text-center font-semibold text-primaryDark text-5xl select-none'>
           <motion.h1
             animate={isNavOpen ? 'show' : 'hide'}
             variants={ItemVariants}
