@@ -12,7 +12,7 @@ export default class Document extends NextDocument {
             rel='stylesheet'
           />
         </Head>
-        <body className='bg-dark text-white'>
+        <body className='bg-dark text-white overflow-hidden'>
           <Main />
           <NextScript />
         </body>
