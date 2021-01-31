@@ -1,58 +1,32 @@
-import {
-  Box,
-  Button,
-  Center,
-  Container,
-  Heading,
-  Image,
-  Text,
-} from '@chakra-ui/react'
-import {motion} from 'framer-motion'
 import Head from 'next/head'
-import Link from 'next/link'
-
-const MotionButton = motion.custom(Button)
 
 export default function Home() {
   return (
-    <Container maxW='2xl'>
+    <>
       <Head>
         <title>Indrajit Sarkar.</title>
       </Head>
 
-      <Center flexDirection='column' minH='100vh'>
-        <Image
-          borderRadius='full'
-          boxSize={{base: '120px', md: '150px'}}
+      <div className='container mx-auto w-screen min-h-screen flex flex-col justify-center items-center '>
+        <img
+          className='h-28 w-2h-28 rounded-full mb-3'
           src='/profile.jpg'
           alt='Indrajit Sarkar'
-          mb={5}
         />
-        <Text mb={2} fontSize='sm' fontFamily='Fira Mono' color='primary'>
-          Hello, my name is
-        </Text>
-        <Heading size='2xl' letterSpacing={1}>
+        <p className='text-primary font-mono'>Hello my name is</p>
+        <h1 className='font-bold text-5xl mb-3 tracking-normal'>
           Indrajit Sarkar.
-        </Heading>
-        <Box mt={2}>
-          <Text fontSize='sm' textAlign='center' letterSpacing={1}>
-            I’m a student, currently pursuing BCA. I love building/designing
-            websites and applications. Currently working with various web
-            technologies.
-          </Text>
-        </Box>
-        <Link href='/about'>
-          <MotionButton
-            whileHover={{scale: 1.1}}
-            whileTap={{scale: 0.9}}
-            mt={5}
-            bg='primary'
-            color='primaryDark'
-            borderRadius='full'>
-            Get in touch
-          </MotionButton>
-        </Link>
-      </Center>
-    </Container>
+        </h1>
+        <p className='text-center w-10/12 max-w-screen-sm opacity-80'>
+          I’m a student, currently pursuing BCA. I love building/designing
+          websites and applications. Currently working with various web
+          technologies.
+        </p>
+
+        <button className='mt-5 bg-primary text-primaryDark px-3 py-2 rounded-full font-medium'>
+          Get in touch
+        </button>
+      </div>
+    </>
   )
 }

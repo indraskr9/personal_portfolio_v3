@@ -1,10 +1,9 @@
-import {Button} from '@chakra-ui/react'
 import Link from 'next/link'
 
 const about = () => {
   return (
     <Link href='/'>
-      <Button>Hello world</Button>
+      <button>Hello world</button>
     </Link>
   )
 }
