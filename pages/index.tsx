@@ -61,12 +61,12 @@ export default function Home() {
         </motion.p>
         <motion.h1
           variants={ItemVariants}
-          className='font-bold text-5xl mb-3 tracking-normal select-text'>
+          className='font-bold text-5xl mb-3 tracking-normal select-text opacity-100'>
           Indrajit Sarkar.
         </motion.h1>
         <motion.p
           variants={ItemVariants}
-          className='text-center w-10/12 max-w-screen-sm opacity-80'>
+          className='opacity-50 text-center w-10/12 max-w-screen-sm'>
           I’m a student, currently pursuing BCA. I love building/designing
           websites and applications. Currently working with various web
           technologies.
