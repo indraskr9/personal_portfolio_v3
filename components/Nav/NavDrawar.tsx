@@ -2,43 +2,45 @@ import {UiContext} from 'context/ui'
 import {motion, Variants} from 'framer-motion'
 import {useContext} from 'react'
 import Link from 'next/link'
+import {useRouter} from 'next/router'
+
+const ContainerVariants: Variants = {
+  hide: {
+    opacity: 0,
+    x: 100,
+    transition: {stiffness: 40, staggerChildren: 0.4},
+  },
+  show: {
+    x: 0,
+    opacity: 1,
+    transition: {type: 'spring', stiffness: 50, staggerChildren: 0.2},
+  },
+}
+
+const ItemVariants: Variants = {
+  hide: {
+    opacity: 0,
+    x: 100,
+    y: 10,
+    transition: {},
+  },
+  show: {
+    opacity: 1,
+    x: 0,
+    y: 0,
+    transition: {type: 'spring', duration: 1},
+  },
+  hover: {
+    scale: 1.2,
+  },
+  tap: {
+    scale: 0.8,
+  },
+}
 
 const NavDrawar = () => {
   const {isNavOpen, setIsNavOpen} = useContext(UiContext)
-
-  const ContainerVariants: Variants = {
-    hide: {
-      opacity: 0,
-      x: 100,
-      transition: {stiffness: 40, staggerChildren: 0.4},
-    },
-    show: {
-      x: 0,
-      opacity: 1,
-      transition: {type: 'spring', stiffness: 50, staggerChildren: 0.2},
-    },
-  }
-
-  const ItemVariants: Variants = {
-    hide: {
-      opacity: 0,
-      x: 100,
-      y: 10,
-      transition: {},
-    },
-    show: {
-      opacity: 1,
-      x: 0,
-      y: 0,
-      transition: {type: 'spring', duration: 1},
-    },
-    hover: {
-      scale: 1.2,
-    },
-    tap: {
-      scale: 0.8,
-    },
-  }
+  const router = useRouter()
 
   return (
     <motion.div
@@ -78,7 +80,9 @@ const NavDrawar = () => {
             whileTap='tap'
             whileHover='hover'
             className='my-14 cursor-pointer'>
-            <Link href='/about'>About</Link>
+            <Link href={router.pathname === '/about' ? '/' : '/about'}>
+              {router.pathname === '/about' ? 'Home' : 'About'}
+            </Link>
           </motion.h1>
           <motion.h1
             animate={isNavOpen ? 'show' : 'hide'}
