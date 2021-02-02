@@ -1,5 +1,7 @@
+import {motion} from 'framer-motion'
+
 export const TechListElement = ({title}: {title: string}) => (
-  <p className='my-1'>
+  <motion.p className='my-1'>
     <span className='inline-block pr-2 transform -translate-y-0'>
       <svg
         width='10'
@@ -11,5 +13,5 @@ export const TechListElement = ({title}: {title: string}) => (
       </svg>
     </span>
     {title}
-  </p>
+  </motion.p>
 )

@@ -20,6 +20,25 @@ const ContainerVariants: Variants = {
   },
 }
 
+const ItemVariants: Variants = {
+  start: {
+    opacity: 0,
+    y: '100%',
+    transition: {},
+  },
+  end: {
+    opacity: 1,
+    y: '0%',
+    transition: {
+      type: 'spring',
+      stiffness: 60,
+      damping: 12,
+      duration: 0.5,
+      staggerChildren: 0.3,
+    },
+  },
+}
+
 const about = () => {
   return (
     <>
@@ -32,11 +51,15 @@ const about = () => {
         initial='start'
         animate='end'
         exit='exit'
-        className='container mx-auto w-screen min-h-screen py-5 px-3 sm:px-0'>
-        <motion.h1 className='text-4xl text-primary font-semibold'>
+        className='container mx-auto w-screen min-h-screen py-5 px-3 sm:px-1'>
+        <motion.h1
+          variants={ItemVariants}
+          className='text-4xl text-primary font-semibold'>
           About me
         </motion.h1>
-        <motion.div className='description py-3 opacity-90 md:w-3/4'>
+        <motion.div
+          variants={ItemVariants}
+          className='description py-3 opacity-90 md:w-3/4'>
           <p>Hello, I’m Indrajit Sarkar, a student from Kolkata.</p>
           <p>
             I love designing and building things for web and mobile. I enjoy
@@ -47,19 +70,22 @@ const about = () => {
             Here are a few technologies I’ve been working with recently:
           </p>
         </motion.div>
-        <div id='techs' className='flex sm:w-3/6'>
-          <div className='mr-10'>
+        <motion.div
+          variants={ItemVariants}
+          id='techs'
+          className='flex sm:w-3/6'>
+          <motion.div className='mr-10 font-mono' variants={ItemVariants}>
             <TechListElement title='JavaScript' />
             <TechListElement title='TypeScript' />
             <TechListElement title='React' />
             <TechListElement title='Node.JS' />
-          </div>
-          <div className=''>
+          </motion.div>
+          <motion.div className='font-mono' variants={ItemVariants}>
             <TechListElement title='HTML/(S)CSS' />
             <TechListElement title='GraphQL' />
             <TechListElement title='Electron.JS' />
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </motion.div>
     </>
   )
