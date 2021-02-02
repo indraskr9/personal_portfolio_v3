@@ -1,4 +1,6 @@
+import {Nav} from 'components'
 import {motion, Variants} from 'framer-motion'
+import Head from 'next/head'
 import Link from 'next/link'
 
 const ContainerVariants: Variants = {
@@ -24,12 +26,16 @@ const ContainerVariants: Variants = {
 const about = () => {
   return (
     <>
+      <Head>
+        <title>About | Indrajit Sarkar.</title>
+      </Head>
+      <Nav />
       <motion.div
-        className=''
         variants={ContainerVariants}
         initial='start'
         animate='end'
-        exit='exit'>
+        exit='exit'
+        className='container mx-auto w-screen min-h-screen'>
         <Link href='/'>
           <motion.button className='mt-5 bg-primary text-primaryDark px-3 py-2 rounded-full font-medium'>
             Hello world

@@ -7,16 +7,11 @@ const NavOpenButton = () => {
 
   return (
     <motion.div
-      initial={{opacity: 0, x: 10}}
-      animate={{
-        opacity: 1,
-        x: 0,
-      }}
-      whileTap={{
-        scale: 0.8,
-      }}
+      initial={{opacity: 0}}
+      animate={{opacity: 1, transition: {delay: 1.2}}}
+      whileTap={{scale: 0.8}}
       id='nav-opener'
-      className='absolute right-0 w-10 h-10 bg-primary flex justify-center items-center cursor-pointer hover:bg-primaryDark transition'
+      className='absolute z-10 right-0 w-10 h-10 bg-primary flex justify-center items-center cursor-pointer hover:bg-primaryDark transition'
       onClick={() => {
         setIsNavOpen(!isNavOpen)
       }}>

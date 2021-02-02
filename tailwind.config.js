@@ -10,7 +10,11 @@ module.exports = {
       primary: '#6083FF',
       primaryDark: '#344C9E',
     },
-    extend: {},
+    extend: {
+      zIndex: {
+        '-10': '-10',
+      },
+    },
   },
   variants: {
     extend: {},

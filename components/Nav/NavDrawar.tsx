@@ -32,6 +32,12 @@ const NavDrawar = () => {
       y: 0,
       transition: {type: 'spring', duration: 1},
     },
+    hover: {
+      scale: 1.2,
+    },
+    tap: {
+      scale: 0.8,
+    },
   }
 
   return (
@@ -40,7 +46,7 @@ const NavDrawar = () => {
       animate={isNavOpen ? 'show' : 'hide'}
       variants={ContainerVariants}
       id='nav-drawar'
-      className={`fixed right-0 z-10 bg-primary w-full sm:w-2/4 md:w-1/4 ${
+      className={`fixed right-0 z-20 bg-primary w-full sm:w-2/4 md:w-1/4 ${
         !isNavOpen && 'invisible'
       }`}>
       <div className='flex justify-center items-center flex-col min-h-screen'>
@@ -63,28 +69,30 @@ const NavDrawar = () => {
           </svg>
         </div>
 
-        <div className='text-center font-semibold text-primaryDark text-5xl select-none'>
+        <div
+          className='text-center font-semibold text-primaryDark text-5xl select-none'
+          onClick={() => setIsNavOpen(!isNavOpen)}>
           <motion.h1
             animate={isNavOpen ? 'show' : 'hide'}
             variants={ItemVariants}
-            whileTap={{scale: 0.8}}
-            whileHover={{scale: 1.2}}
+            whileTap='tap'
+            whileHover='hover'
             className='my-14 cursor-pointer'>
             <Link href='/about'>About</Link>
           </motion.h1>
           <motion.h1
             animate={isNavOpen ? 'show' : 'hide'}
             variants={ItemVariants}
-            whileTap={{scale: 0.8}}
-            whileHover={{scale: 1.2}}
+            whileTap='tap'
+            whileHover='hover'
             className='my-14 cursor-pointer'>
             Projects
           </motion.h1>
           <motion.h1
             animate={isNavOpen ? 'show' : 'hide'}
             variants={ItemVariants}
-            whileTap={{scale: 0.8}}
-            whileHover={{scale: 1.2}}
+            whileTap='tap'
+            whileHover='hover'
             className='my-14 cursor-pointer'>
             Contact
           </motion.h1>
