@@ -1,7 +1,7 @@
 import {UiProvider} from 'context/ui'
 import {AnimatePresence} from 'framer-motion'
 import {AppProps} from 'next/app'
-import 'tailwindcss/tailwind.css'
+import 'styles/globals.css'
 
 function handleExitComplete() {
   if (typeof window !== 'undefined') {

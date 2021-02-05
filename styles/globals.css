@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .filter-grayscale-20 {
+    filter: grayscale(100%);
+  }
+}

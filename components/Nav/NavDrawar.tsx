@@ -74,32 +74,46 @@ const NavDrawar = () => {
         <div
           className='text-center font-semibold text-primaryDark text-5xl select-none'
           onClick={() => setIsNavOpen(!isNavOpen)}>
-          <motion.h1
-            animate={isNavOpen ? 'show' : 'hide'}
-            variants={ItemVariants}
-            whileTap='tap'
-            whileHover='hover'
-            className='my-14 cursor-pointer'>
-            <Link href={router.pathname === '/about' ? '/' : '/about'}>
-              {router.pathname === '/about' ? 'Home' : 'About'}
-            </Link>
-          </motion.h1>
-          <motion.h1
-            animate={isNavOpen ? 'show' : 'hide'}
-            variants={ItemVariants}
-            whileTap='tap'
-            whileHover='hover'
-            className='my-14 cursor-pointer'>
-            Projects
-          </motion.h1>
-          <motion.h1
-            animate={isNavOpen ? 'show' : 'hide'}
-            variants={ItemVariants}
-            whileTap='tap'
-            whileHover='hover'
-            className='my-14 cursor-pointer'>
-            Contact
-          </motion.h1>
+          {router.pathname !== '/' && (
+            <motion.h1
+              animate={isNavOpen ? 'show' : 'hide'}
+              variants={ItemVariants}
+              whileTap='tap'
+              whileHover='hover'
+              className='my-14 cursor-pointer'>
+              <Link href='/'>Home</Link>
+            </motion.h1>
+          )}
+          {router.pathname !== '/about' && (
+            <motion.h1
+              animate={isNavOpen ? 'show' : 'hide'}
+              variants={ItemVariants}
+              whileTap='tap'
+              whileHover='hover'
+              className='my-14 cursor-pointer'>
+              <Link href='/about'>About</Link>
+            </motion.h1>
+          )}
+          {router.pathname !== '/projects' && (
+            <motion.h1
+              animate={isNavOpen ? 'show' : 'hide'}
+              variants={ItemVariants}
+              whileTap='tap'
+              whileHover='hover'
+              className='my-14 cursor-pointer'>
+              <Link href='/projects'>Projects</Link>
+            </motion.h1>
+          )}
+          {router.pathname !== '/contact' && (
+            <motion.h1
+              animate={isNavOpen ? 'show' : 'hide'}
+              variants={ItemVariants}
+              whileTap='tap'
+              whileHover='hover'
+              className='my-14 cursor-pointer'>
+              <Link href='/contact'>Contact</Link>
+            </motion.h1>
+          )}
         </div>
 
         <div className='absolute bottom-5 flex flex-row justify-around w-1/2'>
