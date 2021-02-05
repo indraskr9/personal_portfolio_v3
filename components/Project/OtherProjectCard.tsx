@@ -1,4 +1,6 @@
 import {ProjectTags} from 'components'
+import {motion} from 'framer-motion'
+import {ProjectCardAnimation} from './animation'
 
 type Props = {
   title: string
@@ -6,7 +8,9 @@ type Props = {
 
 export const OtherProjectCard: React.FC<Props> = ({title = 'Unknown'}) => {
   return (
-    <div className='flex-1 m-2 bg-dark2 p-5 rounded-md relative'>
+    <motion.div
+      variants={ProjectCardAnimation}
+      className='flex-1 m-2 bg-dark2 p-5 rounded-md relative'>
       <h3 className='text-4xl font-semibold tracking-wide mb-1'>{title}</h3>
       <p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Id pariatur
@@ -34,6 +38,6 @@ export const OtherProjectCard: React.FC<Props> = ({title = 'Unknown'}) => {
           />
         </svg>
       </div>
-    </div>
+    </motion.div>
   )
 }

@@ -1,4 +1,6 @@
 import {ProjectTags} from 'components'
+import {motion} from 'framer-motion'
+import {ProjectCardAnimation} from './animation'
 import styles from './styles/FeaturedProjectCard.module.css'
 
 type Props = {
@@ -13,7 +15,9 @@ export const FeaturedProjectCard: React.FC<Props> = ({
   imageOnLeft,
 }) => {
   return (
-    <div className='flex flex-col md:flex-row p-2 md:p-5 rounded-md relative my-8 bg-gray bg-opacity-70 hover:shadow-xl transition-all duration-500 transform hover:scale-105'>
+    <motion.div
+      variants={ProjectCardAnimation}
+      className='flex flex-col md:flex-row p-2 md:p-5 rounded-md relative my-8 bg-gray bg-opacity-70 hover:shadow-xl transition-all duration-500 transform hover:scale-105'>
       <div
         className={`${styles.project_thumbnail} relative flex-1 md:${
           imageOnLeft && 'order-last'
@@ -53,6 +57,6 @@ export const FeaturedProjectCard: React.FC<Props> = ({
           {<ProjectTags items={['React', 'GraphQL', 'TypeScript']} />}
         </div>
       </div>
-    </div>
+    </motion.div>
   )
 }
