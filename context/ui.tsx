@@ -1,19 +1,18 @@
 import {createContext, Dispatch, SetStateAction, useState} from 'react'
 
-export interface UiContextType {
+export type UiCtxType = {
   isNavOpen: boolean
   setIsNavOpen: Dispatch<SetStateAction<boolean>>
 }
 
-export const UiContext = createContext<UiContextType>({})
+export const UiContext = createContext({} as UiCtxType)
 
-function useUiProvider(): UiContextType {
-  const [isNavOpen, setIsNavOpen] = useState(false)
-  return {isNavOpen, setIsNavOpen}
-}
+export const UiProvider: React.FC = props => {
+  const [isNavOpen, setIsNavOpen] = useState<boolean>(false)
 
-export const UiProvider: React.FC = ({children}) => {
   return (
-    <UiContext.Provider value={useUiProvider()}>{children}</UiContext.Provider>
+    <UiContext.Provider value={{isNavOpen, setIsNavOpen}}>
+      {props.children}
+    </UiContext.Provider>
   )
 }

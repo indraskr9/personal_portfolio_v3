@@ -12,9 +12,7 @@ const NavOpenButton = () => {
       whileTap={{scale: 0.8}}
       id='nav-opener'
       className='absolute z-10 right-0 w-10 h-10 bg-primary flex justify-center items-center cursor-pointer hover:bg-primaryDark transition'
-      onClick={() => {
-        setIsNavOpen(!isNavOpen)
-      }}>
+      onClick={() => setIsNavOpen(!isNavOpen)}>
       <svg
         width='20'
         height='20'
