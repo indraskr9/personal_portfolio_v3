@@ -1,7 +1,7 @@
 <div align='center'>
   <h1><strong><a href='https://dni9.vercel.app' target='_blank'>Personal Portfolio v3</a></strong></h1>
 
-  <h4>This is the 3rd version of my personal website, built with <strong>Next.JS, TypeScript, TailwindCSS, Framer Motion,</strong> hosted with <a href='https://vercel.com' target='_blank'>Vercel</a></h4>
+  <h4>This is the 3rd version of my personal website, this time built with <strong>Next.JS, TypeScript, TailwindCSS, Framer Motion,</strong> hosted with <a href='https://vercel.com' target='_blank'>Vercel</a></h4>
 </div>
 
 <br>
@@ -30,7 +30,7 @@
    yarn build
    ```
 
-2. Server locally
+2. Serve locally
    ```sh
    yarn start
    ```
