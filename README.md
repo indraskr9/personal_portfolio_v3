@@ -1,8 +1,7 @@
 <div align='center'>
-  <a href='https://dni9.vercel.app' target='_blank' >
-    <h1><strong>Personal Portfolio</strong> v3</h1>
-  </a>
-  <h3>This is the 3rd version of my personal website, built with <strong>Next.JS, TypeScript, TailwindCSS, Framer Motion,</strong> hosted with <a href='https://vercel.com' target='_blank'>Vercel</a></h3>
+  <h1><strong><a href='https://dni9.vercel.app' target='_blank'>Personal Portfolio v3</a></strong></h1>
+
+  <h4>This is the 3rd version of my personal website, built with <strong>Next.JS, TypeScript, TailwindCSS, Framer Motion,</strong> hosted with <a href='https://vercel.com' target='_blank'>Vercel</a></h4>
 </div>
 
 <br>
