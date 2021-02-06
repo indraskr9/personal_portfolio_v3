@@ -8,10 +8,11 @@ const NavOpenButton = () => {
   return (
     <motion.div
       initial={{opacity: 0}}
-      animate={{opacity: 1, transition: {delay: 1.2}}}
+      animate={{opacity: 1, transition: {delay: 1.1}}}
+      exit={{opacity: 0}}
       whileTap={{scale: 0.8}}
       id='nav-opener'
-      className='absolute z-10 right-0 w-10 h-10 bg-primary flex justify-center items-center cursor-pointer hover:bg-primaryDark transition'
+      className='fixed z-10 right-0 w-10 h-10 bg-primary flex justify-center items-center cursor-pointer hover:bg-primaryDark transition'
       onClick={() => setIsNavOpen(!isNavOpen)}>
       <svg
         width='20'
