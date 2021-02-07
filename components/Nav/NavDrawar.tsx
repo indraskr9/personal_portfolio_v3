@@ -5,15 +5,20 @@ import Link from 'next/link'
 import {useRouter} from 'next/router'
 
 const ContainerVariants: Variants = {
-  hide: {
-    opacity: 0,
-    x: 100,
-    transition: {stiffness: 40, staggerChildren: 0.4},
-  },
   show: {
     x: 0,
     opacity: 1,
-    transition: {type: 'spring', stiffness: 50, staggerChildren: 0.2},
+    transition: {
+      type: 'spring',
+      stiffness: 50,
+      staggerChildren: 0.2,
+      when: 'beforeChildren',
+    },
+  },
+  hide: {
+    opacity: 0,
+    x: '100%',
+    transition: {stiffness: 40, staggerChildren: 0.4},
   },
 }
 
@@ -48,9 +53,7 @@ const NavDrawar = () => {
       animate={isNavOpen ? 'show' : 'hide'}
       variants={ContainerVariants}
       id='nav-drawar'
-      className={`fixed right-0 z-20 bg-primary w-full sm:w-2/4 md:w-1/4 ${
-        !isNavOpen && 'invisible'
-      }`}>
+      className='z-10 fixed right-0 bg-primary w-full sm:w-2/4 md:w-1/4'>
       <div className='flex justify-center items-center flex-col min-h-screen'>
         <div
           className='absolute top-2 right-2 cursor-pointer'

@@ -9,17 +9,17 @@ export const Nav = () => {
   return (
     <>
       <NavOpenButton />
-      <NavDrawar />
-
       <div
+        style={{zIndex: 5}}
         className={`${
           isNavOpen &&
-          'bg-dark z-10 opacity-80 absolute w-screen min-h-screen transition duration-500 ease-in-out'
+          'bg-dark opacity-80 absolute w-screen min-h-screen transition duration-500 ease-in-out'
         }`}
         onClick={() => {
           isNavOpen && setIsNavOpen(!isNavOpen)
         }}
       />
+      <NavDrawar />
     </>
   )
 }
