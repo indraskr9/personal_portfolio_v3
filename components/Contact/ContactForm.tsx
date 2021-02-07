@@ -24,7 +24,7 @@ export const ContactForm = () => {
         </label>
         <textarea
           required
-          placeholder='your message'
+          placeholder='write something...'
           className='bg-dark bg-opacity-70 focus:bg-opacity-100 placeholder-blue-100 placeholder-opacity-30 outline-none px-3 py-2 rounded-sm mt-2 border-b-2 border-primaryDark focus:border-primary transition-all duration-500 w-full min-w-full resize-none'
           name='message'
           rows={3}
