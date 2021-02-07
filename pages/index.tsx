@@ -1,4 +1,4 @@
-import {Nav} from 'components'
+import {Alert, Nav} from 'components'
 import {motion, Variants} from 'framer-motion'
 import Head from 'next/head'
 import Link from 'next/link'
@@ -50,7 +50,7 @@ export default function Home() {
         variants={ContainerVariants}
         initial='start'
         animate='end'
-        className={`container mx-auto w-screen min-h-screen flex flex-col justify-center items-center`}>
+        className='container mx-auto w-screen min-h-screen flex flex-col justify-center items-center'>
         <motion.img
           variants={ItemVariants}
           className='h-28 w-2h-28 rounded-full mb-3'
@@ -79,6 +79,13 @@ export default function Home() {
           <Link href={MAILTO_MY_EMAIL_ID}>Get in touch</Link>
         </motion.button>
       </motion.div>
+      <Alert
+        message='Download resume'
+        showIcon
+        action={() => {
+          // TODO: add resume link
+        }}
+      />
     </>
   )
 }
