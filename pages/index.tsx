@@ -2,6 +2,7 @@ import {Nav} from 'components'
 import {motion, Variants} from 'framer-motion'
 import Head from 'next/head'
 import Link from 'next/link'
+import {MAILTO_MY_EMAIL_ID} from 'utils/constants'
 
 const ContainerVariants: Variants = {
   start: {
@@ -75,7 +76,7 @@ export default function Home() {
         <motion.button
           variants={ItemVariants}
           className='mt-5 bg-primary text-primaryDark px-3 py-2 rounded-full font-medium'>
-          <Link href='mailto:indrasarkar98@gmail.com'>Get in touch</Link>
+          <Link href={MAILTO_MY_EMAIL_ID}>Get in touch</Link>
         </motion.button>
       </motion.div>
     </>
