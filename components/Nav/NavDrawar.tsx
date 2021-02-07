@@ -120,7 +120,7 @@ const NavDrawar = () => {
         </div>
 
         <div className='absolute bottom-5 flex flex-row justify-around w-1/2'>
-          <Link href='https://github.com/dni9'>
+          <a href='https://github.com/dni9' target='_blank'>
             <svg
               className='cursor-pointer'
               width='30'
@@ -134,7 +134,7 @@ const NavDrawar = () => {
                 fillOpacity='0.69'
               />
             </svg>
-          </Link>
+          </a>
           <svg
             className='cursor-pointer'
             width='30'
