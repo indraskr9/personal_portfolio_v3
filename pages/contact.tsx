@@ -77,7 +77,7 @@ const contact = () => {
           <motion.div
             initial={{y: 10, scale: 0.5, opacity: 0}}
             animate={{y: 0, scale: 1, opacity: 1}}
-            className='flex absolute right-3 bottom-3 text-primary bg-primaryDark bg-opacity-20 hover:bg-opacity-40 transition-all ease-in-out duration-500 p-3 rounded-full cursor-pointer lg:hidden'>
+            className='flex fixed right-3 bottom-3 text-primary bg-primaryDark bg-opacity-20 hover:bg-opacity-40 transition-all ease-in-out duration-500 p-3 rounded-full cursor-pointer lg:hidden'>
             <svg
               xmlns='http://www.w3.org/2000/svg'
               width='20'
