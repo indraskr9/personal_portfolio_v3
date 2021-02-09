@@ -10,13 +10,13 @@ export const OtherProjectCard: React.FC<Props> = ({title = 'Unknown'}) => {
   return (
     <motion.div
       variants={ProjectCardAnimation}
-      className='flex-1 m-2 bg-dark2 p-5 rounded-md relative'>
+      className='flex-1 m-2 bg-dark2 px-5 pb-0 pt-5 rounded-md relative'>
       <h3 className='text-4xl font-semibold tracking-wide mb-1'>{title}</h3>
       <p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Id pariatur
         aspernatur quis eligendi. Ex illum nulla doloremque, harum aliquam eius.
       </p>
-      <div className={`flex my-5 justify-start`}>
+      <div className={`flex flex-wrap my-5 justify-start max-w-full`}>
         <ProjectTags items={['React', 'GraphQL', 'TypeScript']} />
       </div>
       <div className='absolute top-1 right-2 pointer-events-none'>
