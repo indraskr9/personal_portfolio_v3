@@ -26,8 +26,8 @@ const ContainerVariants: Variants = {
 const ItemVariants: Variants = {
   start: {
     opacity: 0,
-    scale: 1.3,
-    y: '250%',
+    scale: 1.2,
+    y: 150,
     transition: {},
   },
   end: {

@@ -16,13 +16,14 @@ export const Alert: React.FC<Props> = ({
   return (
     <motion.div
       onClick={action}
-      initial={{x: 200, scale: 0.5}}
+      initial={{x: '-150%', scale: 0.5}}
       animate={{
         x: 0,
         scale: 1,
         transition: {delay, type: 'spring', stiffness: 100, damping: 20},
       }}
-      className='flex justify-center items-center absolute right-4 bottom-4 py-2 px-3 bg-primary bg-opacity-20 text-primary rounded-full cursor-pointer hover:bg-opacity-40 transition-all duration-300'>
+      exit={{scale: 0.5, x: '-100%', opacity: 0}}
+      className='flex justify-center items-center absolute left-4 bottom-4 py-2 px-3 bg-primary bg-opacity-20 text-primary rounded-full cursor-pointer hover:bg-opacity-40 transition-all duration-300'>
       <motion.div className='mr-2 text-sm'>{message}</motion.div>
 
       {/* TODO: Change Icon */}
