@@ -1,3 +1,14 @@
+.project_links {
+  backdrop-filter: blur(10px);
+  opacity: 0;
+}
+
+.featured_card:hover .project_links {
+  background: rgba(31, 31, 43, 0.4);
+  opacity: 0.9;
+  visibility: visible;
+}
+
 .project_thumbnail::before {
   content: '';
   height: 100%;

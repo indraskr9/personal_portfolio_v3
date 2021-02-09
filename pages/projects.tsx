@@ -1,11 +1,11 @@
-import {motion, Variants} from 'framer-motion'
-import Head from 'next/head'
-import {Nav, FeaturedProjectCard, OtherProjectCard} from 'components'
-import Link from 'next/link'
+import {FeaturedProjectCard, Nav, OtherProjectCard} from 'components'
 import {
   ProjectContainerVariants,
   ProjectItemVariants,
 } from 'components/Project/animation'
+import {motion} from 'framer-motion'
+import Head from 'next/head'
+import Link from 'next/link'
 
 const projects = () => {
   return (

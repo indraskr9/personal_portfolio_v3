@@ -1,7 +1,10 @@
 import {ProjectTags} from 'components'
 import {motion} from 'framer-motion'
 import {ProjectCardAnimation} from './animation'
+import {BiCodeAlt} from 'react-icons/bi'
+import {HiOutlineExternalLink} from 'react-icons/hi'
 import styles from './styles/FeaturedProjectCard.module.css'
+import {ProjectLinkIcon} from './ProjectLinkIcon'
 
 type Props = {
   image?: string
@@ -17,11 +20,19 @@ export const FeaturedProjectCard: React.FC<Props> = ({
   return (
     <motion.div
       variants={ProjectCardAnimation}
-      className='flex flex-col md:flex-row p-2 md:p-5 rounded-md relative my-8 bg-gray bg-opacity-70 hover:shadow-xl transition-all duration-500 transform hover:scale-105'>
+      className={`${styles.featured_card} flex flex-col md:flex-row p-2 md:p-5 rounded-md relative my-8 bg-gray bg-opacity-70 hover:shadow-xl transition-all duration-500 transform hover:scale-105`}>
       <div
         className={`${styles.project_thumbnail} relative flex-1 md:${
           imageOnLeft && 'order-last'
         } order-first`}>
+        <div
+          className={`${styles.project_links} hidden invisible absolute ${
+            imageOnLeft ? 'right-0' : 'left-0'
+          } h-full px-2 md:flex flex-col justify-center items-center transition-all duration-500`}>
+          <ProjectLinkIcon Icon={BiCodeAlt} title='View Code' />
+          <ProjectLinkIcon Icon={HiOutlineExternalLink} title='Open Live' />
+        </div>
+
         <img
           className='rounded-sm object-cover w-full h-52 md:min-h-full'
           src={`/images/${image}`}
@@ -55,6 +66,14 @@ export const FeaturedProjectCard: React.FC<Props> = ({
             imageOnLeft ? 'justify-start' : 'justify-end'
           }`}>
           {<ProjectTags items={['React', 'GraphQL', 'TypeScript']} />}
+        </div>
+        <div className='flex justify-end md:hidden'>
+          <ProjectLinkIcon Icon={BiCodeAlt} title='View Code' size={30} />
+          <ProjectLinkIcon
+            Icon={HiOutlineExternalLink}
+            title='Open Live'
+            size={30}
+          />
         </div>
       </div>
     </motion.div>
