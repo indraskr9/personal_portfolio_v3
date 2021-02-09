@@ -10,8 +10,11 @@ export const OtherProjectCard: React.FC<Props> = ({title = 'Unknown'}) => {
   return (
     <motion.div
       variants={ProjectCardAnimation}
+      style={{minWidth: '18rem'}}
       className='flex-1 m-2 bg-dark2 px-5 pb-0 pt-5 rounded-md relative'>
-      <h3 className='text-4xl font-semibold tracking-wide mb-1'>{title}</h3>
+      <a href='#'>
+        <h3 className='text-4xl font-semibold tracking-wide mb-1'>{title}</h3>
+      </a>
       <p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Id pariatur
         aspernatur quis eligendi. Ex illum nulla doloremque, harum aliquam eius.
