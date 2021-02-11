@@ -22,9 +22,9 @@ export const FeaturedProjectCard: React.FC<Props> = ({
       variants={ProjectCardAnimation}
       className={`${styles.featured_card} flex flex-col md:flex-row p-2 md:p-5 rounded-md relative my-8 bg-gray bg-opacity-70 hover:shadow-xl transition-all duration-500 transform hover:scale-105`}>
       <div
-        className={`${styles.project_thumbnail} relative flex-1 md:${
-          imageOnLeft && 'order-last'
-        } order-first`}>
+        className={`${styles.project_thumbnail} relative flex-1 ${
+          imageOnLeft && 'md:order-last'
+        }`}>
         <div
           className={`${styles.project_links} hidden invisible absolute ${
             imageOnLeft ? 'right-0' : 'left-0'
