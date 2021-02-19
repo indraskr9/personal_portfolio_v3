@@ -76,7 +76,7 @@ export default function Home() {
         <motion.button
           variants={ItemVariants}
           className='mt-5 bg-primary text-primaryDark px-3 py-2 rounded-full font-medium'>
-          <Link href={MAILTO_MY_EMAIL_ID}>Get in touch</Link>
+          <Link href='/contact'>Get in touch</Link>
         </motion.button>
       </motion.div>
       <Alert
