@@ -16,6 +16,7 @@
     "react-dom": "17.0.1",
     "react-icons": "^4.2.0",
     "sass": "^1.32.5",
+    "swr": "^0.4.2",
     "tailwindcss": "^2.0.2"
   },
   "devDependencies": {

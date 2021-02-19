@@ -4,9 +4,13 @@ import {ProjectCardAnimation} from './animation'
 
 type Props = {
   title: string
+  description: string
 }
 
-export const OtherProjectCard: React.FC<Props> = ({title = 'Unknown'}) => {
+export const OtherProjectCard: React.FC<Props> = ({
+  title = 'Unknown',
+  description,
+}) => {
   return (
     <motion.div
       variants={ProjectCardAnimation}
@@ -15,10 +19,7 @@ export const OtherProjectCard: React.FC<Props> = ({title = 'Unknown'}) => {
       <a href='#'>
         <h3 className='text-4xl font-semibold tracking-wide mb-1'>{title}</h3>
       </a>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Id pariatur
-        aspernatur quis eligendi. Ex illum nulla doloremque, harum aliquam eius.
-      </p>
+      <p>{description}</p>
       <div className={`flex flex-wrap my-5 justify-start max-w-full`}>
         <ProjectTags items={['React', 'GraphQL', 'TypeScript']} />
       </div>
