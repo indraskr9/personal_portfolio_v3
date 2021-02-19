@@ -57,7 +57,7 @@ const NavDrawar = () => {
       className='z-10 fixed right-0 bg-primary w-full sm:w-2/4 md:w-1/4'>
       <div className='flex justify-center items-center flex-col min-h-screen'>
         <div
-          className='absolute top-2 right-2 cursor-pointer'
+          className='absolute top-2 right-2 md:left-2 cursor-pointer max-w-min'
           onClick={() => {
             setIsNavOpen(!isNavOpen)
           }}>

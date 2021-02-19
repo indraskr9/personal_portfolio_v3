@@ -7,6 +7,9 @@ const NavOpenButton = () => {
 
   return (
     <motion.div
+      onHoverStart={e => {
+        setIsNavOpen(!isNavOpen)
+      }}
       initial={{opacity: 0}}
       animate={{opacity: 1, transition: {delay: 1}}}
       exit={{opacity: 0}}
