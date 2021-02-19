@@ -11,7 +11,7 @@ export const ProjectLinkIcon: React.FC<Props & IconBaseProps> = ({
   title,
   size = 40,
 }) => (
-  <a href={link} target='_blank noopener noreferrer'>
+  <a href={link} target='_blank' rel='noopener noreferrer'>
     <Icon
       title={title}
       size={size}
