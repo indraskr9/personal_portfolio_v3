@@ -10,6 +10,7 @@ export const Nav = () => {
     <>
       <NavOpenButton />
       <div
+        id='nav-overlay'
         style={{zIndex: 5}}
         className={`${
           isNavOpen &&
