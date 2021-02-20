@@ -2,7 +2,6 @@ import {Alert, Nav} from 'components'
 import {motion, Variants} from 'framer-motion'
 import Head from 'next/head'
 import Link from 'next/link'
-import {MAILTO_MY_EMAIL_ID} from 'utils/constants'
 
 const ContainerVariants: Variants = {
   start: {
@@ -72,12 +71,13 @@ export default function Home() {
           websites and applications. Currently working with various web
           technologies.
         </motion.p>
-
-        <motion.button
-          variants={ItemVariants}
-          className='mt-5 bg-primary text-primaryDark px-3 py-2 rounded-full font-medium'>
-          <Link href='/contact'>Get in touch</Link>
-        </motion.button>
+        <Link href='/contact'>
+          <motion.button
+            variants={ItemVariants}
+            className='mt-5 bg-primary text-primaryDark px-3 py-2 rounded-full font-medium'>
+            Get in touch
+          </motion.button>
+        </Link>
       </motion.div>
       <Alert
         message='Download resume'
