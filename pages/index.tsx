@@ -2,6 +2,7 @@ import {Alert, Nav} from 'components'
 import {motion, Variants} from 'framer-motion'
 import Head from 'next/head'
 import Link from 'next/link'
+import {useRouter} from 'next/router'
 
 const ContainerVariants: Variants = {
   start: {
@@ -38,6 +39,7 @@ const ItemVariants: Variants = {
 }
 
 export default function Home() {
+  const router = useRouter()
   return (
     <>
       <Head>
@@ -83,9 +85,7 @@ export default function Home() {
       <Alert
         message='Download resume'
         showIcon
-        action={() => {
-          // TODO: add resume link
-        }}
+        action={() => router.push('/resume.pdf')}
       />
     </>
   )

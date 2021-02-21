@@ -4,6 +4,7 @@ import {useContext} from 'react'
 import Link from 'next/link'
 import {useRouter} from 'next/router'
 import {AiFillGithub, AiFillLinkedin, AiOutlineInstagram} from 'react-icons/ai'
+import {HiDocumentDownload} from 'react-icons/hi'
 
 const ContainerVariants: Variants = {
   show: {
@@ -138,6 +139,13 @@ const NavDrawar = () => {
           </a>
           <a href='#' target='_blank' rel='noopener noreferrer'>
             <AiOutlineInstagram size='35' color='#3E56A8' />
+          </a>
+          <a
+            href='/resume.pdf'
+            target='_blank'
+            rel='noopener noreferrer'
+            title='Download Resume'>
+            <HiDocumentDownload size='35' color='#3E56A8' />
           </a>
         </motion.div>
       </div>
