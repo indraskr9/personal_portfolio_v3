@@ -51,8 +51,9 @@ export default function Home() {
         animate='end'
         className='container mx-auto w-screen min-h-screen flex flex-col justify-center items-center'>
         <motion.img
+          style={{boxShadow: '-25px -15px 68px 50px rgba(96, 131, 255, 0.1)'}}
           variants={ItemVariants}
-          className='h-28 w-2h-28 rounded-full mb-3'
+          className='h-28 w-2h-28 rounded-full mb-3 transition-shadow duration-500'
           src='/images/me.jpg'
           alt='Indrajit Sarkar'
         />

@@ -8,6 +8,7 @@ export const Nav = () => {
 
   return (
     <>
+      <div className='blurry-backgrounds w-52 h-52 right-0'></div>
       <NavOpenButton />
       <div
         id='nav-overlay'

@@ -14,3 +14,13 @@
     @apply bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded;
   }
 }
+
+.blurry-backgrounds {
+  position: absolute;
+  background: linear-gradient(
+    164.01deg,
+    rgba(45, 52, 78, 0.25) 2.76%,
+    rgba(135, 94, 253, 0.25) 79.35%
+  );
+  filter: blur(200px);
+}
