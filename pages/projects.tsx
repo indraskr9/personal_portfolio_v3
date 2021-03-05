@@ -113,9 +113,11 @@ const projects = () => {
               />
             ))}
           </div>
-          <button className='mt-5 bg-primary text-primaryDark px-5 py-2 rounded-full font-medium mx-auto block'>
-            <Link href='#'>Show All</Link>
-          </button>
+          <Link href='#'>
+            <button className='mt-5 border border-opacity-40 border-white hover:bg-white hover:bg-opacity-10 hover:border-opacity-70 transition-all text-white text-opacity-70 hover:text-opacity-95 duration-500 px-5 py-2 rounded-full font-medium mx-auto block'>
+              Show All
+            </button>
+          </Link>
         </motion.section>
       </motion.div>
     </>
