@@ -1,4 +1,4 @@
-import {ContactForm, Nav} from 'components'
+import {ContactForm, Nav, BlurryBg} from 'components'
 import {motion, Variants} from 'framer-motion'
 import Head from 'next/head'
 import Link from 'next/link'
@@ -33,12 +33,20 @@ const contact = () => {
       <motion.div
         exit='exit'
         className='container mx-auto flex justify-center items-center w-screen min-h-screen'>
+        <BlurryBg
+          className='left-32'
+          style={{
+            background:
+              'linear-gradient(160.41deg, rgba(96, 131, 255, 0.25) 5.08%, rgba(212, 94, 253, 0.35) 80.5%)',
+          }}
+        />
+        <BlurryBg className='right-60 top-10' />
         <motion.div
           variants={ContactContainerVariants}
           initial='start'
           animate='end'
           exit='exit'
-          className='w-full md:w-3/5 mx-5 bg-dark2 p-8 shadow-md rounded-sm flex flex-col lg:flex-row lg:justify-between overflow-hidden'>
+          className='w-full md:w-3/5 mx-5 p-8 shadow-md rounded-md flex flex-col lg:flex-row lg:justify-between overflow-hidden bg-white bg-opacity-5 hover:bg-white hover:bg-opacity-10 border border-blue-100 border-opacity-5 hover:border-blue-100 hover:border-opacity-20 transition-colors duration-500'>
           <section className='flex flex-col justify-between mb-2 md:mb-0'>
             <div className=''>
               <h1 className='text-3xl md:text-5xl'>Let's talk</h1>
