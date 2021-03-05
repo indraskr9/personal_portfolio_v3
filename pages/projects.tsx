@@ -1,4 +1,4 @@
-import {FeaturedProjectCard, Nav, OtherProjectCard} from 'components'
+import {BlurryBg, FeaturedProjectCard, Nav, OtherProjectCard} from 'components'
 import {
   ProjectContainerVariants,
   ProjectItemVariants,
@@ -53,14 +53,35 @@ const projects = () => {
         initial='start'
         animate='end'
         className='container mx-auto py-5'>
-        <h1 className='text-4xl text-primary font-semibold mx-5 md:mx-0'>
+        <motion.h1
+          initial={{y: 50, opacity: 0}}
+          animate={{
+            y: 0,
+            opacity: 1,
+            transition: {
+              duration: 0.5,
+            },
+          }}
+          className='text-5xl sm:text-7xl md:text-8xl lg:text-9xl tracking-wider text-center text-white font-semibold my-20 md:mx-0 uppercase'
+          style={{
+            WebkitTextFillColor: 'transparent',
+            WebkitTextStroke: '2px rgba(255, 255, 255, 0.671)',
+          }}>
           Projects
-        </h1>
+        </motion.h1>
 
         <motion.section
           variants={ProjectItemVariants}
           className='mx-auto md:w-11/12 w-full px-5 md:px-0'
           id='featured-projects'>
+          <BlurryBg className='right-0 w-72 h-72' />
+          <BlurryBg
+            className='left-0 bottom-0 w-80 h-80'
+            style={{
+              background:
+                'linear-gradient(160.41deg, rgba(96, 131, 255, 0.25) 5.08%, rgba(212, 94, 253, 0.35) 80.5%)',
+            }}
+          />
           {featuredProjects?.map(({name, photoUrl}, index) => (
             <FeaturedProjectCard
               key={name}
@@ -72,6 +93,14 @@ const projects = () => {
         </motion.section>
 
         <motion.section variants={ProjectItemVariants}>
+          <BlurryBg className='right-0' />
+          <BlurryBg
+            className='left-0 bottom-0'
+            style={{
+              background:
+                'linear-gradient(160.41deg, rgba(96, 131, 255, 0.25) 5.08%, rgba(212, 94, 253, 0.35) 80.5%)',
+            }}
+          />
           <h2 className='uppercase text-primary text-center font-semibold tracking-wider mt-24'>
             Other Projects
           </h2>

@@ -12,7 +12,12 @@ export default class Document extends NextDocument {
             rel='stylesheet'
           />
         </Head>
-        <body className='bg-dark text-white overflow-x-hidden'>
+        <body
+          className='text-white overflow-x-hidden'
+          style={{
+            background:
+              'linear-gradient(150deg, #25253B -0.78%, #16172E 102%);',
+          }}>
           <Main />
           <NextScript />
         </body>

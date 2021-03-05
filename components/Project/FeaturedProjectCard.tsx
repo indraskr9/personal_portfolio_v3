@@ -20,7 +20,7 @@ export const FeaturedProjectCard: React.FC<Props> = ({
   return (
     <motion.div
       variants={ProjectCardAnimation}
-      className={`${styles.featured_card} flex flex-col md:flex-row p-2 md:p-5 rounded-md relative my-8 bg-gray bg-opacity-70 hover:shadow-xl transition-all duration-500 transform hover:scale-105`}>
+      className={`${styles.featured_card} flex flex-col md:flex-row p-2 md:p-5 rounded-md relative my-8 bg-opacity-70 hover:shadow-lg transition-all duration-500 transform hover:scale-105 hover:bg-white hover:bg-opacity-5 border border-blue-100 border-opacity-5 hover:border-blue-100 hover:border-opacity-20 group`}>
       <div
         className={`${styles.project_thumbnail} relative flex-1 ${
           imageOnLeft && 'md:order-last'
@@ -53,7 +53,7 @@ export const FeaturedProjectCard: React.FC<Props> = ({
           }`}>
           {title}
         </h1>
-        <div className='bg-primary bg-opacity-10 p-5 rounded-sm my-3 relative transform min-w-full'>
+        <div className='bg-white group-hover:bg-opacity-10 bg-opacity-5 p-5 rounded-sm my-3 relative transform min-w-full transition-all'>
           <p className=''>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Erat sociis
             viverra quis hac gravida ut lacus lectus ut. Risus ipsum facilisis
