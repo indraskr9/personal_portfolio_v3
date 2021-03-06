@@ -74,13 +74,14 @@ const projects = () => {
           variants={ProjectItemVariants}
           className='mx-auto md:w-11/12 w-full px-5 md:px-0'
           id='featured-projects'>
-          <BlurryBg className='right-0 w-72 h-72' />
+          <BlurryBg className='right-0 w-72 h-72' delay={0.7} />
           <BlurryBg
             className='left-0 bottom-0 w-80 h-80'
             style={{
               background:
                 'linear-gradient(160.41deg, rgba(96, 131, 255, 0.25) 5.08%, rgba(212, 94, 253, 0.35) 80.5%)',
             }}
+            delay={1.5}
           />
           {featuredProjects?.map(({name, photoUrl}, index) => (
             <FeaturedProjectCard
