@@ -20,6 +20,10 @@ module.exports = {
         '-10': '-10',
       },
     },
+    gradientColorStops: theme => ({
+      grad1: '#6082ff59',
+      grad2: '#d45efd59',
+    }),
   },
   variants: {
     extend: {

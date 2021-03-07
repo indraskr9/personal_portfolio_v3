@@ -1,0 +1,6 @@
+@media (min-width: 768px) {
+  #blurry_bg {
+    filter: blur(100px);
+    /* color: #6082ff59; */
+  }
+}
