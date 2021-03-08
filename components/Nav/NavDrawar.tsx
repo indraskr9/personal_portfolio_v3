@@ -19,7 +19,7 @@ const ContainerVariants: Variants = {
   },
   hide: {
     opacity: 0,
-    x: '100%',
+    x: '90%',
     transition: {stiffness: 40, staggerChildren: 0.4},
   },
 }
@@ -27,7 +27,7 @@ const ContainerVariants: Variants = {
 const ItemVariants: Variants = {
   hide: {
     opacity: 0,
-    x: '100%',
+    x: '150%',
     y: 10,
     transition: {},
   },
@@ -51,6 +51,7 @@ const NavDrawar = () => {
 
   return (
     <motion.div
+      onPanStart={e => setIsNavOpen(!isNavOpen)}
       initial={false}
       animate={isNavOpen ? 'show' : 'hide'}
       variants={ContainerVariants}
