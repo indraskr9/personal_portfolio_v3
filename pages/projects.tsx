@@ -1,14 +1,30 @@
-import {BlurryBg, FeaturedProjectCard, Nav, OtherProjectCard} from 'components'
+import {
+  BlurryBg,
+  FeaturedProjectCard as FeaturedProjectCardType,
+  Nav,
+  OtherProjectCard as OtherProjectCardType,
+} from 'components'
 import {
   ProjectContainerVariants,
   ProjectItemVariants,
 } from 'components/Project/animation'
 import {motion} from 'framer-motion'
+import dynamic from 'next/dynamic'
 import Head from 'next/head'
 import Link from 'next/link'
 import useSWR from 'swr'
 import {fetcherFn} from 'swr/dist/types'
 import {ProjectType} from 'utils/project-data'
+
+const FeaturedProjectCard = dynamic(
+  () => import('components').then(mod => mod.FeaturedProjectCard as any),
+  {loading: () => <h1>Loading Featured Projects</h1>}
+) as typeof FeaturedProjectCardType
+
+const OtherProjectCard = dynamic(
+  () => import('components').then(mod => mod.OtherProjectCard as any),
+  {loading: () => <h1>Loading Other Projects</h1>}
+) as typeof OtherProjectCardType
 
 const fetcher: fetcherFn<ProjectType[]> = url =>
   fetch(url).then(res => res.json())
