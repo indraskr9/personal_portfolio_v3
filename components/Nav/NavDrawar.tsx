@@ -1,8 +1,8 @@
 import {UiContext} from 'context/ui'
 import {motion, Variants} from 'framer-motion'
-import {useContext} from 'react'
 import Link from 'next/link'
 import {useRouter} from 'next/router'
+import {useContext} from 'react'
 import {AiFillGithub, AiFillLinkedin, AiOutlineInstagram} from 'react-icons/ai'
 import {HiDocumentDownload} from 'react-icons/hi'
 
@@ -49,6 +49,17 @@ const NavDrawar = () => {
   const {isNavOpen, setIsNavOpen} = useContext(UiContext)
   const router = useRouter()
 
+  const NavLink = ({title, link}: {title: string; link: string}) => (
+    <motion.h1
+      animate={isNavOpen ? 'show' : 'hide'}
+      variants={ItemVariants}
+      whileTap='tap'
+      whileHover='hover'
+      className='cursor-pointer my-14'>
+      <Link href={link}>{title}</Link>
+    </motion.h1>
+  )
+
   return (
     <motion.div
       onPanStart={e => setIsNavOpen(!isNavOpen)}
@@ -56,10 +67,10 @@ const NavDrawar = () => {
       animate={isNavOpen ? 'show' : 'hide'}
       variants={ContainerVariants}
       id='nav-drawar'
-      className='z-10 fixed right-0 bg-primary w-full sm:w-2/4 md:w-1/4'>
-      <div className='flex justify-center items-center flex-col min-h-screen'>
+      className='fixed right-0 z-10 w-full bg-primary sm:w-2/4 md:w-1/4'>
+      <div className='flex flex-col items-center justify-center min-h-screen'>
         <div
-          className='absolute top-2 right-2 md:left-2 cursor-pointer max-w-min'
+          className='absolute cursor-pointer top-2 right-2 md:left-2 max-w-min'
           onClick={() => {
             setIsNavOpen(!isNavOpen)
           }}>
@@ -78,54 +89,25 @@ const NavDrawar = () => {
         </div>
 
         <div
-          className='text-center font-semibold text-primaryDark text-5xl select-none'
+          className='text-5xl font-semibold text-center select-none text-primaryDark'
           onClick={() => setIsNavOpen(!isNavOpen)}>
-          {router.pathname !== '/' && (
-            <motion.h1
-              animate={isNavOpen ? 'show' : 'hide'}
-              variants={ItemVariants}
-              whileTap='tap'
-              whileHover='hover'
-              className='my-14 cursor-pointer'>
-              <Link href='/'>Home</Link>
-            </motion.h1>
-          )}
+          {router.pathname !== '/' && <NavLink title='Home' link='/' />}
           {router.pathname !== '/about' && (
-            <motion.h1
-              animate={isNavOpen ? 'show' : 'hide'}
-              variants={ItemVariants}
-              whileTap='tap'
-              whileHover='hover'
-              className='my-14 cursor-pointer'>
-              <Link href='/about'>About</Link>
-            </motion.h1>
+            <NavLink title='About' link='/about' />
           )}
           {router.pathname !== '/projects' && (
-            <motion.h1
-              animate={isNavOpen ? 'show' : 'hide'}
-              variants={ItemVariants}
-              whileTap='tap'
-              whileHover='hover'
-              className='my-14 cursor-pointer'>
-              <Link href='/projects'>Projects</Link>
-            </motion.h1>
+            <NavLink title='Projects' link='/projects' />
           )}
+          {router.pathname !== '/blog' && <NavLink title='Blog' link='/blog' />}
           {router.pathname !== '/contact' && (
-            <motion.h1
-              animate={isNavOpen ? 'show' : 'hide'}
-              variants={ItemVariants}
-              whileTap='tap'
-              whileHover='hover'
-              className='my-14 cursor-pointer'>
-              <Link href='/contact'>Contact</Link>
-            </motion.h1>
+            <NavLink title='Contact' link='/contact' />
           )}
         </div>
 
         <motion.div
           animate={isNavOpen ? 'show' : 'hide'}
           variants={ItemVariants}
-          className='absolute bottom-5 flex flex-row justify-around w-1/2'>
+          className='absolute flex flex-row justify-around w-1/2 bottom-5'>
           <a
             href='https://github.com/dni9'
             target='_blank'
