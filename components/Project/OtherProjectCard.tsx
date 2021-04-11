@@ -1,15 +1,14 @@
 import {ProjectTags} from 'components'
 import {motion} from 'framer-motion'
+import {ProjectType} from 'utils/project-data'
 import {ProjectCardAnimation} from './animation'
 
 type Props = {
-  title: string
-  description: string
+  project: ProjectType
 }
 
 export const OtherProjectCard: React.FC<Props> = ({
-  title = 'Unknown',
-  description,
+  project: {name, description, technologies, gitUrl},
 }) => {
   return (
     <motion.div
@@ -17,15 +16,15 @@ export const OtherProjectCard: React.FC<Props> = ({
       style={{
         minWidth: '18rem' /*border: '1px solid rgba(206, 210, 221, 0.10)'*/,
       }}
-      className='flex-1 m-2 px-5 pb-0 pt-5 rounded-md relative hover:bg-white hover:bg-opacity-10 border border-blue-200 border-opacity-20 hover:border-blue-100 hover:border-opacity-50 transition-all duration-500'>
-      <a href='#'>
-        <h3 className='text-4xl font-semibold tracking-wide mb-1'>{title}</h3>
+      className='relative flex-1 px-5 pt-5 pb-0 m-2 transition-all duration-500 border border-blue-200 rounded-md hover:bg-white hover:bg-opacity-10 border-opacity-20 hover:border-blue-100 hover:border-opacity-50'>
+      <a href={gitUrl} target='_blank' rel='noopener noreferrer'>
+        <h3 className='mb-1 text-4xl font-semibold tracking-wide'>{name}</h3>
       </a>
       <p>{description}</p>
       <div className={`flex flex-wrap my-5 justify-start max-w-full`}>
-        <ProjectTags items={['React', 'GraphQL', 'TypeScript']} />
+        <ProjectTags items={technologies} />
       </div>
-      <div className='absolute top-1 right-2 pointer-events-none'>
+      <div className='absolute pointer-events-none top-1 right-2'>
         <svg
           width='100'
           height='100'

@@ -25,13 +25,13 @@ const projects = () => {
         variants={ProjectContainerVariants}
         initial='start'
         animate='end'
-        className='bg-primary p-5 text-dark flex items-center'>
+        className='flex items-center p-5 bg-primary text-dark'>
         <div className=''>
           <h1 className='text-2xl'>Something went wrong :(</h1>
           <p className='text-dark2'>Could not fetch project list.</p>
         </div>
         <Link href='/'>
-          <button className='ml-auto bg-primaryDark text-white px-3 py-2 rounded-full bg-opacity-60 hover:bg-opacity-80 transition-all duration-500'>
+          <button className='px-3 py-2 ml-auto text-white transition-all duration-500 rounded-full bg-primaryDark bg-opacity-60 hover:bg-opacity-80'>
             Home
           </button>
         </Link>
@@ -52,7 +52,7 @@ const projects = () => {
         variants={ProjectContainerVariants}
         initial='start'
         animate='end'
-        className='container mx-auto py-5'>
+        className='container py-5 mx-auto'>
         <motion.h1
           initial={{y: 50, opacity: 0}}
           animate={{
@@ -62,7 +62,7 @@ const projects = () => {
               duration: 0.5,
             },
           }}
-          className='text-5xl sm:text-7xl md:text-8xl lg:text-9xl tracking-wider text-center text-white font-semibold my-20 md:mx-0 uppercase'
+          className='my-20 text-5xl font-semibold tracking-wider text-center text-white uppercase sm:text-7xl md:text-8xl lg:text-9xl md:mx-0'
           style={{
             WebkitTextFillColor: 'transparent',
             WebkitTextStroke: '2px rgba(255, 255, 255, 0.671)',
@@ -72,13 +72,13 @@ const projects = () => {
 
         <motion.section
           variants={ProjectItemVariants}
-          className='mx-auto md:w-11/12 w-full px-5 md:px-0'
+          className='w-full px-5 mx-auto md:w-11/12 md:px-0'
           id='featured-projects'>
           <BlurryBg
             className='right-0 w-72 h-72 md:bg-gradient-to-bl'
             delay={0.7}
           />
-          <BlurryBg className='left-0 bottom-0 w-80 h-80' delay={1.5} />
+          <BlurryBg className='bottom-0 left-0 w-80 h-80' delay={1.5} />
           {featuredProjects?.map((project, index) => (
             <FeaturedProjectCard
               key={project.name}
@@ -90,22 +90,18 @@ const projects = () => {
 
         <motion.section variants={ProjectItemVariants}>
           <BlurryBg className='right-0' />
-          <BlurryBg className='left-0 bottom-0' />
-          <h2 className='uppercase text-primary text-center font-semibold tracking-wider mt-24'>
+          <BlurryBg className='bottom-0 left-0' />
+          <h2 className='mt-24 font-semibold tracking-wider text-center uppercase text-primary'>
             Other Projects
           </h2>
-          <div className='mt-5 mx-auto w-full md:w-11/12 max-w-screen-xl px-5 md:px-0 flex flex-wrap'>
-            {otherProjects?.map(({name, description}) => (
-              <OtherProjectCard
-                key={name}
-                title={name}
-                description={description}
-              />
+          <div className='flex flex-wrap w-full max-w-screen-xl px-5 mx-auto mt-5 md:w-11/12 md:px-0'>
+            {otherProjects?.map(project => (
+              <OtherProjectCard key={project.name} project={project} />
             ))}
           </div>
           <Link href='#'>
-            <button className='mt-5 border border-opacity-40 border-white hover:bg-white hover:bg-opacity-10 hover:border-opacity-70 transition-all text-white text-opacity-70 hover:text-opacity-95 duration-500 px-5 py-2 rounded-full font-medium mx-auto block'>
-              Show All
+            <button className='block px-5 py-2 mx-auto mt-5 font-medium text-white transition-all duration-500 border border-white rounded-full border-opacity-40 hover:bg-white hover:bg-opacity-10 hover:border-opacity-70 text-opacity-70 hover:text-opacity-95'>
+              Show more
             </button>
           </Link>
         </motion.section>
