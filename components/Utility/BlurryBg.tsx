@@ -1,6 +1,5 @@
 import {motion} from 'framer-motion'
 import {CSSProperties} from 'react'
-import styles from './styles/BlurryBg.module.css'
 
 export const BlurryBg = ({
   className,
@@ -14,14 +13,8 @@ export const BlurryBg = ({
   return (
     <motion.div
       initial={{opacity: 0}}
-      animate={{
-        opacity: 0.3,
-        transition: {
-          delay,
-        },
-      }}
-      id={styles.blurry_bg}
-      className={`w-52 h-52 absolute -z-10 md:bg-gradient-to-br from-grad1 to-grad2 ${className}`}
+      animate={{opacity: 0.2, transition: {delay}}}
+      className={`w-64 h-64 rounded-md absolute -z-10 filter md:blur-2xl md:bg-gradient-to-br from-grad1 to-grad2 ${className}`}
     />
   )
 }

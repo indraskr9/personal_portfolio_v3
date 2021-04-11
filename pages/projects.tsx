@@ -1,5 +1,5 @@
 import {
-  BlurryBg,
+  BlurryBg as BlurryBgTypes,
   FeaturedProjectCard as FeaturedProjectCardType,
   Nav,
   OtherProjectCard as OtherProjectCardType,
@@ -20,6 +20,10 @@ const FeaturedProjectCard = dynamic(
   () => import('components').then(mod => mod.FeaturedProjectCard as any),
   {loading: () => <h1>Loading Featured Projects</h1>}
 ) as typeof FeaturedProjectCardType
+
+const BlurryBg = dynamic(() =>
+  import('components').then(mod => mod.BlurryBg as any)
+) as typeof BlurryBgTypes
 
 const OtherProjectCard = dynamic(
   () => import('components').then(mod => mod.OtherProjectCard as any),
