@@ -29,8 +29,12 @@ export const FeaturedProjectCard: React.FC<Props> = ({
           className={`${styles.project_links} hidden invisible absolute ${
             imageOnLeft ? 'right-0' : 'left-0'
           } h-full px-2 md:flex flex-col justify-center items-center transition-all duration-500`}>
-          <ProjectLinkIcon Icon={BiCodeAlt} title='View Code' />
-          <ProjectLinkIcon Icon={HiOutlineExternalLink} title='Open Live' />
+          <ProjectLinkIcon link={gitUrl} Icon={BiCodeAlt} title='View Code' />
+          <ProjectLinkIcon
+            link={liveUrl}
+            Icon={HiOutlineExternalLink}
+            title='Open Live'
+          />
         </div>
 
         <img
