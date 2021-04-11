@@ -24,7 +24,7 @@ const data: ProjectType[] = [
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Erat sociis viverra quis hac gravida ut lacus lectus ut. Risus ipsum facilisis ut est eros ullamcorper. Morbi eleifend in posuere elit nam sed. Mattis suscipit ac.',
     photoUrl: 'profile.jpg',
-    technologies: ['React', 'GraphQL', 'TypeScript'],
+    technologies: ['Next.JS', 'GraphQL', 'TypeScript'],
     featured: true,
     gitUrl: 'https://github.com/dni9',
     liveUrl: '#',

@@ -79,11 +79,10 @@ const projects = () => {
             delay={0.7}
           />
           <BlurryBg className='left-0 bottom-0 w-80 h-80' delay={1.5} />
-          {featuredProjects?.map(({name, photoUrl}, index) => (
+          {featuredProjects?.map((project, index) => (
             <FeaturedProjectCard
-              key={name}
-              title={name}
-              image={photoUrl}
+              key={project.name}
+              project={project}
               imageOnLeft={index % 2 !== 0}
             />
           ))}

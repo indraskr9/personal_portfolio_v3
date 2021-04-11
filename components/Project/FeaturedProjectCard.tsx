@@ -1,22 +1,22 @@
 import {ProjectTags} from 'components'
 import {motion} from 'framer-motion'
-import {ProjectCardAnimation} from './animation'
 import {BiCodeAlt} from 'react-icons/bi'
 import {HiOutlineExternalLink} from 'react-icons/hi'
-import styles from './styles/FeaturedProjectCard.module.css'
+import {ProjectType} from 'utils/project-data'
+import {ProjectCardAnimation} from './animation'
 import {ProjectLinkIcon} from './ProjectLinkIcon'
+import styles from './styles/FeaturedProjectCard.module.css'
 
 type Props = {
-  image?: string
-  title: string
+  project: ProjectType
   imageOnLeft?: boolean
 }
 
 export const FeaturedProjectCard: React.FC<Props> = ({
-  image = 'project.jpg',
-  title,
+  project,
   imageOnLeft,
 }) => {
+  const {photoUrl, name, description, technologies, liveUrl, gitUrl} = project
   return (
     <motion.div
       variants={ProjectCardAnimation}
@@ -34,8 +34,8 @@ export const FeaturedProjectCard: React.FC<Props> = ({
         </div>
 
         <img
-          className='rounded-sm object-cover w-full h-52 md:min-h-full'
-          src={`/images/${image}`}
+          className='object-cover w-full rounded-sm h-52 md:min-h-full'
+          src={`/images/${photoUrl}`}
           alt='project thumbnail'
         />
       </div>
@@ -51,25 +51,26 @@ export const FeaturedProjectCard: React.FC<Props> = ({
           className={`text-4xl md:text-5xl font-semibold text-left md:${
             imageOnLeft ? 'text-left' : 'text-right'
           }`}>
-          {title}
+          {name}
         </h1>
-        <div className='bg-white group-hover:bg-opacity-10 bg-opacity-5 p-5 rounded-sm my-3 relative transform min-w-full transition-all'>
-          <p className=''>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Erat sociis
-            viverra quis hac gravida ut lacus lectus ut. Risus ipsum facilisis
-            ut est eros ullamcorper. Morbi eleifend in posuere elit nam sed.
-            Mattis suscipit ac.
-          </p>
+        <div className='relative min-w-full p-5 my-3 transition-all transform bg-white rounded-sm group-hover:bg-opacity-10 bg-opacity-5'>
+          <p className=''>{description}</p>
         </div>
         <div
           className={`flex my-5 justify-start md:${
             imageOnLeft ? 'justify-start' : 'justify-end'
           }`}>
-          {<ProjectTags items={['React', 'GraphQL', 'TypeScript']} />}
+          {<ProjectTags items={technologies} />}
         </div>
         <div className='flex justify-end md:hidden'>
-          <ProjectLinkIcon Icon={BiCodeAlt} title='View Code' size={30} />
           <ProjectLinkIcon
+            link={gitUrl}
+            Icon={BiCodeAlt}
+            title='View Code'
+            size={30}
+          />
+          <ProjectLinkIcon
+            link={liveUrl}
             Icon={HiOutlineExternalLink}
             title='Open Live'
             size={30}
