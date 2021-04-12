@@ -1,1 +1,2 @@
-export * from './BlurryBg';
+export * from './BlurryBg'
+export * from './MDXComponents'

@@ -1,6 +1,11 @@
-type Props = {
-  title: string
-  summary: string
+import dayjs from 'dayjs'
+import localizedFormat from 'dayjs/plugin/localizedFormat'
+import {FrontMatterData} from 'lib/mdx'
+import Link from 'next/link'
+
+dayjs.extend(localizedFormat)
+
+type Props = FrontMatterData & {
   className?: string
   featured?: boolean
 }
@@ -8,8 +13,12 @@ type Props = {
 export const BlogPostCard: React.FC<Props> = ({
   title,
   summary,
+  image,
+  publishedAt,
   featured,
   className,
+  readingTime,
+  slug,
 }) => {
   return (
     <div
@@ -19,19 +28,22 @@ export const BlogPostCard: React.FC<Props> = ({
       {featured && (
         <div className='h-52'>
           <img
-            src='/images/project.jpg'
+            loading='lazy'
+            src={image}
+            alt={title}
             className='object-cover w-full h-full rounded-sm'
-            alt=''
           />
         </div>
       )}
-      <div className='px-3 py-5'>
-        <p className='text-sm text-white text-opacity-90'>
-          21 Mar, 2021 | 10 min read
-        </p>
-        <h1 className='mb-2 text-3xl font-bold'>{title}</h1>
-        <p className='mb-3 opacity-95 line-clamp-2'>{summary}</p>
-      </div>
+      <Link href={`/blog/${slug}`}>
+        <div className='px-3 py-5 cursor-pointer'>
+          <p className='text-sm text-white text-opacity-90'>
+            {dayjs(publishedAt).format('ll')} | {readingTime.text}
+          </p>
+          <h1 className='mb-2 text-3xl font-bold'>{title}</h1>
+          <p className='mb-3 opacity-95 line-clamp-2'>{summary}</p>
+        </div>
+      </Link>
     </div>
   )
 }
