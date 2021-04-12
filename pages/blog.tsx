@@ -83,7 +83,7 @@ const Blog = ({posts}: InferGetStaticPropsType<typeof getStaticProps>) => {
             return (
               <BlogPostCard
                 key={post.slug}
-                className={`md:col-span-${randomIntFromInterval(2, 3)}`}
+                className={idx % 2 === 0 ? 'md:col-span-3' : 'md:col-span-2'}
                 {...post}
               />
             )
