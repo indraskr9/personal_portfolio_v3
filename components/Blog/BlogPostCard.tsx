@@ -2,6 +2,7 @@ import dayjs from 'dayjs'
 import localizedFormat from 'dayjs/plugin/localizedFormat'
 import {motion} from 'framer-motion'
 import {FrontMatterData} from 'lib/mdx'
+import Image from 'next/image'
 import Link from 'next/link'
 
 dayjs.extend(localizedFormat)
@@ -28,13 +29,8 @@ export const BlogPostCard: React.FC<Props> = ({
         !featured && 'md:col-span-5'
       }`}>
       {featured && (
-        <div className='h-52'>
-          <img
-            loading='lazy'
-            src={image}
-            alt={title}
-            className='object-cover w-full h-full rounded-sm'
-          />
+        <div className='relative w-full h-52'>
+          <Image src={image} alt={title} objectFit='cover' layout='fill' />
         </div>
       )}
       <Link as={`/blog/${slug}`} href={`/blog/[slug]`}>
