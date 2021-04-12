@@ -36,7 +36,7 @@ const Blog = ({posts}: InferGetStaticPropsType<typeof getStaticProps>) => {
         </Link>
         <div
           id='searchBar'
-          className='flex items-center justify-start w-5/6 px-5 my-10 transition-all duration-300 bg-white border border-white bg-opacity-10 md:w-5/12 border-opacity-30 focus-within:border-opacity-90'>
+          className='flex items-center justify-start w-5/6 px-5 my-10 transition-all duration-300 bg-white border border-white bg-opacity-10 md:w-6/12 border-opacity-30 focus-within:border-opacity-90'>
           <FiSearch size='18px' />
           <input
             onChange={e => setSearchValue(e.target.value)}

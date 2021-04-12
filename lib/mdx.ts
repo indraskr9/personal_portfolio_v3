@@ -1,6 +1,7 @@
 import {MDXComponents} from 'components'
 import fs from 'fs'
 import matter from 'gray-matter'
+import mdxPrism from 'mdx-prism'
 import renderToString from 'next-mdx-remote/render-to-string'
 import {MdxRemote} from 'next-mdx-remote/types'
 import path from 'path'
@@ -35,7 +36,7 @@ export async function getFileBySlug(type: DirType, slug: string) {
         require('remark-code-titles'),
         require('remark-capitalize'),
       ],
-      // rehypePlugins: [require('mdx-prism')],
+      rehypePlugins: [mdxPrism],
     },
   })
 

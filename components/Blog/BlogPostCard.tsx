@@ -1,11 +1,9 @@
 import dayjs from 'dayjs'
-import localizedFormat from 'dayjs/plugin/localizedFormat'
 import {motion} from 'framer-motion'
 import {FrontMatterData} from 'lib/mdx'
 import Image from 'next/image'
 import Link from 'next/link'
-
-dayjs.extend(localizedFormat)
+import {formatDate} from 'utils/format-date'
 
 type Props = FrontMatterData & {
   className?: string
@@ -36,7 +34,7 @@ export const BlogPostCard: React.FC<Props> = ({
       <Link as={`/blog/${slug}`} href={`/blog/[slug]`}>
         <div className='px-3 py-5 cursor-pointer'>
           <p className='text-sm text-white text-opacity-90'>
-            {dayjs(publishedAt).format('ll')} | {readingTime.text}
+            {formatDate(publishedAt)} | {readingTime.text}
           </p>
           <h1 className='mb-2 text-3xl font-bold'>{title}</h1>
           <p className='mb-3 opacity-95 line-clamp-2'>{summary}</p>
