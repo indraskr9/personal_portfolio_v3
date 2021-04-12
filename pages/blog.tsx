@@ -7,8 +7,7 @@ import Link from 'next/link'
 import {useState} from 'react'
 import {BiSad} from 'react-icons/bi'
 import {FiSearch} from 'react-icons/fi'
-
-const MAX_FEATURED_POSTS = 2
+import {randomIntFromInterval} from 'utils'
 
 const Blog = ({posts}: InferGetStaticPropsType<typeof getStaticProps>) => {
   const [searchValue, setSearchValue] = useState('')
@@ -60,18 +59,25 @@ const Blog = ({posts}: InferGetStaticPropsType<typeof getStaticProps>) => {
               </p>
             </div>
           )}
+
           {filteredBlogPosts.map((post, idx) => {
-            if (idx < MAX_FEATURED_POSTS) {
+            // not randomizing first 2 featured post
+            if (idx < 2) {
               return (
                 <BlogPostCard
-                  key={post.slug}
-                  featured
                   className={idx % 2 === 0 ? 'md:col-span-2' : 'md:col-span-3'}
+                  key={post.slug}
                   {...post}
                 />
               )
             }
-            return <BlogPostCard key={post.slug} {...post} />
+            return (
+              <BlogPostCard
+                key={post.slug}
+                className={`md:col-span-${randomIntFromInterval(2, 3)}`}
+                {...post}
+              />
+            )
           })}
         </section>
       </BlogLayout>

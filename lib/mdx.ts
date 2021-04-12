@@ -13,6 +13,7 @@ export type PostData = {
   publishedAt: string
   summary: string
   image: string
+  featured: boolean
 }
 
 const root = process.cwd()

@@ -23,7 +23,7 @@ export const BlogPostCard: React.FC<Props> = ({
   return (
     <motion.div
       exit='exit'
-      className={`h-full rounded-sm bg-primaryDark bg-opacity-10 ${className} ${
+      className={`h-full rounded-md bg-primaryDark bg-opacity-10 ${className} ${
         !featured && 'md:col-span-5'
       }`}>
       {featured && (
