@@ -1,5 +1,11 @@
 import {MDXComponents, ScrollProgressAnimation} from 'components'
-import {motion, useSpring, useTransform, useViewportScroll} from 'framer-motion'
+import {
+  motion,
+  useSpring,
+  useTransform,
+  useViewportScroll,
+  Variants,
+} from 'framer-motion'
 import {BlogLayout} from 'layouts'
 import {getFileBySlug, getFiles} from 'lib/mdx'
 import {
@@ -12,6 +18,39 @@ import Image from 'next/image'
 import {useEffect, useState} from 'react'
 import {formatDate} from 'utils/format-date'
 
+const ContainerVariants: Variants = {
+  start: {
+    transition: {staggerChildren: 0.2},
+  },
+  end: {
+    transition: {staggerChildren: 0.3},
+  },
+  exit: {
+    y: '50%',
+    opacity: 0,
+    transition: {
+      type: 'spring',
+    },
+  },
+}
+
+const ItemVariants: Variants = {
+  start: {
+    y: '20%',
+    transition: {},
+  },
+  end: {
+    y: '0%',
+    transition: {
+      type: 'spring',
+      stiffness: 60,
+      damping: 12,
+      duration: 0.5,
+      staggerChildren: 0.3,
+    },
+  },
+}
+
 const BlogPost = ({
   mdxSource,
   frontMatter: {title, summary, image, publishedAt, readingTime},
@@ -20,10 +59,16 @@ const BlogPost = ({
     components: MDXComponents,
   })
   return (
-    <motion.div exit='exit'>
+    <motion.div
+      exit='exit'
+      variants={ContainerVariants}
+      initial='start'
+      animate='end'>
       <ScrollProgressAnimation />
       <BlogLayout>
-        <div className='flex flex-col items-center mt-10 mb-28'>
+        <motion.div
+          variants={ItemVariants}
+          className='flex flex-col items-center mt-10 mb-28'>
           <h1 className='mb-5 text-4xl font-semibold text-center md:text-5xl line-clamp-2 lg:text-7xl'>
             {title}
           </h1>
@@ -38,11 +83,13 @@ const BlogPost = ({
           <div className='relative w-full h-80 md:h-[500px]'>
             <Image src={image} alt={title} objectFit='cover' layout='fill' />
           </div>
-        </div>
+        </motion.div>
 
-        <article className='w-full prose lg:prose-xl max-w-none md:max-w-2xl lg:max-w-3xl'>
+        <motion.article
+          variants={ItemVariants}
+          className='w-full prose lg:prose-xl max-w-none md:max-w-2xl lg:max-w-3xl'>
           {content}
-        </article>
+        </motion.article>
       </BlogLayout>
     </motion.div>
   )

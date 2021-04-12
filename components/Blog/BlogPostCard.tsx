@@ -1,5 +1,5 @@
 import dayjs from 'dayjs'
-import {motion} from 'framer-motion'
+import {motion, Variants} from 'framer-motion'
 import {FrontMatterData} from 'lib/mdx'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -8,6 +8,23 @@ import {formatDate} from 'utils/format-date'
 type Props = FrontMatterData & {
   className?: string
   featured?: boolean
+}
+
+const ItemVariants: Variants = {
+  start: {
+    y: '100%',
+    transition: {},
+  },
+  end: {
+    y: '0%',
+    transition: {
+      type: 'spring',
+      stiffness: 60,
+      damping: 12,
+      duration: 0.5,
+      staggerChildren: 0.3,
+    },
+  },
 }
 
 export const BlogPostCard: React.FC<Props> = ({
@@ -22,7 +39,7 @@ export const BlogPostCard: React.FC<Props> = ({
 }) => {
   return (
     <motion.div
-      exit='exit'
+      variants={ItemVariants}
       className={`h-full rounded-md bg-primaryDark bg-opacity-10 ${className} ${
         !featured && 'md:col-span-5'
       }`}>
