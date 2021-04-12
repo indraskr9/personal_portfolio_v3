@@ -1,0 +1,72 @@
+---
+title: 'Testing various the markdown formats'
+publishedAt: '2021-04-03'
+summary: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, molestiae ex molestias dolore animi aspernatur.'
+image: 'https://w.wallhaven.cc/full/13/wallhaven-132oz3.jpg'
+featured: true
+---
+
+Have you ever visited a website and been completely in awe of the elegance and simplicity of its design? For me, that website is [Stripe](https://stripe.com/). Stripe is a company that allows people and businesses to accept payments online and in mobile apps. That doesn't sound like a company that would have an exquisite website design, but look at how Stripe describes themselves on their about page.
+
+> "We think that building an internet business is a problem rooted in code and design, not finance."
+
+Rather than making design an afterthought, it's treated as a first-class citizen at Stripe. You can almost feel the hours of work spent iterating over designs and making minor tweaks when viewing the website's pages. In this article, I'm going to break down how Stripe creates these beautiful designs and give some tips and tricks to web designers and developers alike.
+
+### The Design
+
+<Image
+  alt={`Stripe Website`}
+  src={`https://w.wallhaven.cc/full/13/wallhaven-132oz3.jpg`}
+  width={2248}
+  height={1590}
+/>
+
+Pictured above is the design for Stripe's main landing page. At first glance, here's what really sticks out to me:
+
+1.  Crisp typography
+1.  Stunning color palette
+1.  High-quality images
+1.  Bold call-to-action buttons
+
+Let's see how we can make our font as crisp and clear as possible. First, we'll define our font family to be Camphor along with some fallback fonts. **Note:** Camphor is not free and should be purchased if you're planning to use it in production. However, I did find a [gist containing the font](https://gist.github.com/bdno86/d1f49b6f533df3f832b39d6cc3194303) which you can mess around with.
+
+We can utilize the `text-rendering` CSS property to allow us to choose quality over speed, as well as some vendor specific properties to make our font sharper. **Note:** These should work for Chrome, Safari, and Firefox on Mac.
+
+```css
+body {
+  font-family: Camphor, Open Sans, Segoe UI, sans-serif;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+```
+
+```json:demo.json
+{
+  "type": "service_account",
+  "project_id": "...",
+  "private_key_id": "...",
+  "private_key": "...",
+  "client_email": "...",
+  "client_id": "...",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://accounts.google.com/o/oauth2/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "..."
+}
+```
+
+We use this key later to set up our client in our API Route.
+Okay, back to the [service account](https://console.developers.google.com/iam-admin/serviceaccounts).
+We need to delegate [domain-wide authority](https://developers.google.com/identity/protocols/OAuth2ServiceAccount#delegatingauthority).
+
+- On the table row, click Actions -> Edit.
+- Show Domain-Wide Delegation -> Enable G-Suite Domain-Wide Delegation.
+
+Finally, we need to add our service account email to the Google Analytics account we want to use.
+
+- Go to the Admin panel inside Google Analytics.
+- Click "User Management."
+- Add the `client_email` from your service account.
+
+**That's it!** 🎉 You now have access to make requests to the Google Analytics API with your service account.

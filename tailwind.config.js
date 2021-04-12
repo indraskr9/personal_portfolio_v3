@@ -37,10 +37,6 @@ module.exports = {
               },
               code: {color: '#6083FF'},
             },
-            // blockquote: {
-            //   borderLeftColor: theme('colors.gray.700'),
-            //   color: theme('colors.gray.300'),
-            // },
             'h1,h2,h3,h4': {
               color: theme('colors.white'),
             },

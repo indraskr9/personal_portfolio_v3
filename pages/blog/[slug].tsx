@@ -22,7 +22,7 @@ const BlogPost = ({
     <motion.div exit='exit'>
       <BlogLayout>
         <div className='flex flex-col items-center mt-10 mb-28'>
-          <h1 className='mb-5 text-3xl font-semibold text-center md:text-5xl line-clamp-2 lg:text-7xl'>
+          <h1 className='mb-5 text-4xl font-semibold text-center md:text-5xl line-clamp-2 lg:text-7xl'>
             {title}
           </h1>
           {summary && (

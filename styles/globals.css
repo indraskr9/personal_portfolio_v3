@@ -14,21 +14,28 @@
   }
 }
 
+@layer base {
+}
+
 code[class*='language-'],
 pre[class*='language-'] {
   @apply leading-normal text-white !important;
 }
 
 .prose pre {
-  @apply border border-t-0 border-primary bg-primaryDark bg-opacity-10;
+  @apply border border-t border-primary bg-primaryDark bg-opacity-10;
 }
 
 .remark-code-title + pre {
-  @apply mt-0 rounded-t-none !important;
+  @apply mt-0 rounded-t-none border-t-0 !important;
 }
 
 .remark-code-title {
   @apply px-5 py-3 font-mono text-sm font-bold text-white bg-opacity-50 border border-b-0 rounded-t border-primary bg-primaryDark;
+}
+
+.mdx-marker {
+  @apply block px-4 -mx-4 border-l-4 border-blue-500 bg-gray;
 }
 
 .token.comment,
@@ -102,6 +109,14 @@ pre {
   scrollbar-width: none; /* Firefox */
 }
 
-.mdx-marker {
-  @apply block px-4 -mx-4 border-l-4 border-blue-500 bg-gray;
+.prose blockquote {
+  @apply text-white border-l-2 border-white border-opacity-80 text-opacity-95 bg-dark2 bg-opacity-30;
+}
+
+.prose strong {
+  @apply text-white;
+}
+
+.prose code {
+  @apply px-1 py-1 text-white rounded-md bg-dark2 bg-opacity-80;
 }
