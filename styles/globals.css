@@ -39,7 +39,7 @@ pre[class*='language-'] {
 }
 
 .token.punctuation {
-  @apply text-white;
+  @apply text-blue-300;
 }
 
 .token.property,
@@ -61,7 +61,10 @@ pre[class*='language-'] {
   @apply text-purple-500;
 }
 
-.token.operator,
+.token.operator {
+  @apply text-white text-opacity-90;
+}
+
 .token.entity,
 .token.url,
 .language-css .token.string,
