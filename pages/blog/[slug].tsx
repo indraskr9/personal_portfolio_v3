@@ -1,5 +1,5 @@
-import {MDXComponents} from 'components'
-import {motion} from 'framer-motion'
+import {MDXComponents, ScrollProgressAnimation} from 'components'
+import {motion, useSpring, useTransform, useViewportScroll} from 'framer-motion'
 import {BlogLayout} from 'layouts'
 import {getFileBySlug, getFiles} from 'lib/mdx'
 import {
@@ -9,6 +9,7 @@ import {
 } from 'next'
 import hydrate from 'next-mdx-remote/hydrate'
 import Image from 'next/image'
+import {useEffect, useState} from 'react'
 import {formatDate} from 'utils/format-date'
 
 const BlogPost = ({
@@ -20,6 +21,7 @@ const BlogPost = ({
   })
   return (
     <motion.div exit='exit'>
+      <ScrollProgressAnimation />
       <BlogLayout>
         <div className='flex flex-col items-center mt-10 mb-28'>
           <h1 className='mb-5 text-4xl font-semibold text-center md:text-5xl line-clamp-2 lg:text-7xl'>
