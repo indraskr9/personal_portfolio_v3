@@ -1,5 +1,6 @@
 import dayjs from 'dayjs'
 import localizedFormat from 'dayjs/plugin/localizedFormat'
+import {motion} from 'framer-motion'
 import {FrontMatterData} from 'lib/mdx'
 import Link from 'next/link'
 
@@ -21,7 +22,8 @@ export const BlogPostCard: React.FC<Props> = ({
   slug,
 }) => {
   return (
-    <div
+    <motion.div
+      exit='exit'
       className={`h-full rounded-sm bg-primaryDark bg-opacity-10 ${className} ${
         !featured && 'md:col-span-5'
       }`}>
@@ -35,7 +37,7 @@ export const BlogPostCard: React.FC<Props> = ({
           />
         </div>
       )}
-      <Link href={`/blog/${slug}`}>
+      <Link as={`/blog/${slug}`} href={`/blog/[slug]`}>
         <div className='px-3 py-5 cursor-pointer'>
           <p className='text-sm text-white text-opacity-90'>
             {dayjs(publishedAt).format('ll')} | {readingTime.text}
@@ -44,6 +46,6 @@ export const BlogPostCard: React.FC<Props> = ({
           <p className='mb-3 opacity-95 line-clamp-2'>{summary}</p>
         </div>
       </Link>
-    </div>
+    </motion.div>
   )
 }

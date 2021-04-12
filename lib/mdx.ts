@@ -2,6 +2,7 @@ import {MDXComponents} from 'components'
 import fs from 'fs'
 import matter from 'gray-matter'
 import renderToString from 'next-mdx-remote/render-to-string'
+import {MdxRemote} from 'next-mdx-remote/types'
 import path from 'path'
 import readingTime from 'reading-time'
 
@@ -34,19 +35,18 @@ export async function getFileBySlug(type: DirType, slug: string) {
         require('remark-code-titles'),
         require('remark-capitalize'),
       ],
-      rehypePlugins: [require('mdx-prism')],
+      // rehypePlugins: [require('mdx-prism')],
     },
   })
 
   return {
     mdxSource,
     frontMatter: {
-      wordCount: content.split(/\s+/gu).length,
       readingTime: readingTime(content),
-      slug: slug || null,
+      slug: slug,
       ...data,
     },
-  }
+  } as {frontMatter: FrontMatterData; mdxSource: MdxRemote.Source}
 }
 
 type IReadTimeResults = {

@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import Link from 'next/link'
 
 const CustomLink = (props: any) => {
@@ -17,6 +16,6 @@ const CustomLink = (props: any) => {
 }
 
 export const MDXComponents = {
-  Image,
-  a: CustomLink,
+  // Image,
+  // a: CustomLink,
 }

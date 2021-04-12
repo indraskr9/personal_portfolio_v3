@@ -12,6 +12,7 @@ const MAX_FEATURED_POSTS = 2
 
 const Blog = ({posts}: InferGetStaticPropsType<typeof getStaticProps>) => {
   const [searchValue, setSearchValue] = useState('')
+
   // TODO: debounce search
   const filteredBlogPosts = posts
     .sort(
@@ -21,6 +22,7 @@ const Blog = ({posts}: InferGetStaticPropsType<typeof getStaticProps>) => {
     .filter(frontMatter =>
       frontMatter.title.toLowerCase().includes(searchValue.toLowerCase())
     )
+
   return (
     <>
       <Head>
