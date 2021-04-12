@@ -86,6 +86,10 @@ pre[class*='language-'] {
   @apply text-yellow-500;
 }
 
+.maybe-class-name {
+  @apply text-yellow-400;
+}
+
 pre::-webkit-scrollbar {
   display: none;
 }
