@@ -47,7 +47,7 @@ const Blog = ({posts}: InferGetStaticPropsType<typeof getStaticProps>) => {
           />
         </div>
 
-        <section className='grid w-11/12 gap-4 my-5 md:w-full md:max-w-5xl lg:gap-6 md:grid-cols-5'>
+        <section className='grid gap-4 lg:gap-6 md:grid-cols-5'>
           {!filteredBlogPosts.length && (
             <div className='absolute flex flex-col items-center justify-start text-center transform -translate-x-1/2 left-1/2'>
               <BiSad
