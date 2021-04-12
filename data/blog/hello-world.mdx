@@ -13,24 +13,23 @@ Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, molestiae ex m
 const hello = 'Hello, world!'
 var x = 6
 
-if (x > 5)
+if (x > 5) {
     console.log(hello)
+}
 ```
-
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, molestiae ex molestias dolore animi aspernatur.
-
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, molestiae ex molestias dolore animi aspernatur. Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, molestiae ex molestias dolore animi aspernatur. Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, molestiae ex molestias dolore animi aspernatur.
-
-# Welcome to another awesome blog post!
 
 Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, molestiae ex molestias dolore animi aspernatur. Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, molestiae ex molestias dolore animi aspernatur.
 
-```javascript:hello.js
-const hello = 'Hello, world!'
-var x = 6
-
-if (x > 5)
-    console.log(hello)
+```javascript:app.tsx
+function MyApp({Component, pageProps, router}: AppProps) {
+  return (
+    <UiProvider>
+      <AnimatePresence exitBeforeEnter onExitComplete={handleExitComplete}>
+        <Component {...pageProps} key={router.route} />
+      </AnimatePresence>
+    </UiProvider>
+  )
+}
 ```
 
 Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, molestiae ex molestias dolore animi aspernatur.

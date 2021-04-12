@@ -31,14 +31,16 @@ const BlogPost = ({
             </p>
           )}
           <p className='mt-2 mb-5 font-mono text-sm font-bold text-white text-opacity-90'>
-            {formatDate(publishedAt)} | {readingTime.text}
+            {formatDate(publishedAt)} / {readingTime.text}
           </p>
           <div className='relative w-full h-80 md:h-[500px]'>
             <Image src={image} alt={title} objectFit='cover' layout='fill' />
           </div>
         </div>
 
-        <article className='prose lg:prose-xl'>{content}</article>
+        <article className='w-full prose lg:prose-xl max-w-none md:max-w-2xl lg:max-w-3xl'>
+          {content}
+        </article>
       </BlogLayout>
     </motion.div>
   )

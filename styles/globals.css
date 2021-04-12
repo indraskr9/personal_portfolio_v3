@@ -13,3 +13,88 @@
     @apply px-4 py-2 font-bold text-white bg-blue-500 rounded hover:bg-blue-700;
   }
 }
+
+code[class*='language-'],
+pre[class*='language-'] {
+  @apply leading-normal text-white !important;
+}
+
+.prose pre {
+  @apply border border-t-0 border-primary bg-primaryDark bg-opacity-10;
+}
+
+.remark-code-title + pre {
+  @apply mt-0 rounded-t-none !important;
+}
+
+.remark-code-title {
+  @apply px-5 py-3 font-mono text-sm font-bold text-white bg-opacity-50 border border-b-0 rounded-t border-primary bg-primaryDark;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+  @apply text-white text-opacity-50;
+}
+
+.token.punctuation {
+  @apply text-white;
+}
+
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.deleted {
+  @apply text-green-500;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+  @apply text-purple-500;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+  @apply text-yellow-500;
+}
+
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+  @apply text-blue-500;
+}
+
+.token.function,
+.token.class-name {
+  @apply text-pink-500;
+}
+
+.token.regex,
+.token.important,
+.token.variable {
+  @apply text-yellow-500;
+}
+
+pre::-webkit-scrollbar {
+  display: none;
+}
+
+pre {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.mdx-marker {
+  @apply block px-4 -mx-4 border-l-4 border-blue-500 bg-gray;
+}
