@@ -1,12 +1,9 @@
-import {useViewportScroll, useTransform, useSpring, motion} from 'framer-motion'
-import {useState, useEffect} from 'react'
+import {motion, useSpring} from 'framer-motion'
+import {useScrollValue} from 'utils/hooks'
 
 export const ScrollProgressAnimation = () => {
-  const [isComplete, setIsComplete] = useState(false)
-  const {scrollYProgress} = useViewportScroll()
-  const yRange = useTransform(scrollYProgress, [0, 0.9], [0, 1])
+  const {yRange} = useScrollValue()
   const pathLength = useSpring(yRange, {stiffness: 200, damping: 100})
-  useEffect(() => yRange.onChange(v => setIsComplete(v >= 1)), [yRange])
 
   return (
     <svg className='fixed top-0 z-10' viewBox='0 0 146 4' fill='none'>
@@ -26,8 +23,8 @@ export const ScrollProgressAnimation = () => {
           x2='176'
           y2='11.5002'
           gradientUnits='userSpaceOnUse'>
-          <stop stop-color='#60a5ff' />
-          <stop offset='1' stop-color='#6508bd' />
+          <stop stopColor='#60a5ff' />
+          <stop offset='1' stopColor='#6508bd' />
         </linearGradient>
       </defs>
     </svg>

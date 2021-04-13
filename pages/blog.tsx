@@ -9,7 +9,6 @@ import Link from 'next/link'
 import {useCallback, useState} from 'react'
 import {BiSad} from 'react-icons/bi'
 import {FiSearch} from 'react-icons/fi'
-import {randomIntFromInterval} from 'utils'
 
 const ContainerVariants: Variants = {
   start: {

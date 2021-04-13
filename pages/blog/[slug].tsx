@@ -1,22 +1,17 @@
-import {MDXComponents, ScrollProgressAnimation} from 'components'
-import {
-  motion,
-  useSpring,
-  useTransform,
-  useViewportScroll,
-  Variants,
-} from 'framer-motion'
-import {BlogLayout} from 'layouts'
-import {getFileBySlug, getFiles} from 'lib/mdx'
+import { MDXComponents, ScrollProgressAnimation, ScrollToTop } from 'components'
+import { motion, Variants } from 'framer-motion'
+import { BlogLayout } from 'layouts'
+import { getFileBySlug, getFiles } from 'lib/mdx'
 import {
   GetStaticPaths,
   GetStaticPropsContext,
-  InferGetStaticPropsType,
+  InferGetStaticPropsType
 } from 'next'
 import hydrate from 'next-mdx-remote/hydrate'
 import Image from 'next/image'
-import {useEffect, useState} from 'react'
-import {formatDate} from 'utils/format-date'
+import { formatDate } from 'utils/format-date'
+import { useScrollValue } from 'utils/hooks'
+
 
 const ContainerVariants: Variants = {
   start: {
@@ -58,6 +53,8 @@ const BlogPost = ({
   const content = hydrate(mdxSource, {
     components: MDXComponents,
   })
+  const {scrolledHeader} = useScrollValue()
+
   return (
     <motion.div
       exit='exit'
@@ -65,6 +62,9 @@ const BlogPost = ({
       initial='start'
       animate='end'>
       <ScrollProgressAnimation />
+
+      <ScrollToTop />
+
       <BlogLayout>
         <motion.div
           variants={ItemVariants}
