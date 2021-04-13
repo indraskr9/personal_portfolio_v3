@@ -83,14 +83,15 @@ const Blog = ({posts}: InferGetStaticPropsType<typeof getStaticProps>) => {
           </motion.h1>
 
           <motion.div
-            initial={{opacity: 0, scaleX: 1.2}}
+            initial={{opacity: 0, scale: 0.5, translateY: 20}}
             animate={{
               opacity: 1,
-              scaleX: 1,
-              transition: {delay: 0.7, ease: 'easeInOut'},
+              scale: 1,
+              translateY: 0,
+              transition: {delay: 0.6, ease: 'easeIn'},
             }}
             id='searchBar'
-            className='flex items-center justify-start w-5/6 px-5 my-10 transition-all duration-300 bg-white border border-white bg-opacity-10 md:w-6/12 border-opacity-30 focus-within:border-opacity-90'>
+            className='flex items-center justify-start w-full px-5 my-10 transition-all duration-300 bg-white border border-white bg-opacity-10 md:w-6/12 border-opacity-30 focus-within:border-opacity-90'>
             <FiSearch size='18px' />
             <input
               onChange={e => {
