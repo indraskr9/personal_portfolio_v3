@@ -100,12 +100,11 @@ const Blog = ({posts}: InferGetStaticPropsType<typeof getStaticProps>) => {
               value={searchValue}
               className='w-full py-3 ml-2 placeholder-white bg-transparent outline-none placeholder-opacity-70'
               type='text'
-              placeholder='Search blogs or press /'
+              placeholder='Search blogs'
             />
           </motion.div>
-          <motion.section
-            variants={ItemVariants}
-            className='grid gap-4 lg:gap-6 md:grid-cols-5'>
+
+          <motion.section className='grid gap-4 lg:gap-6 md:grid-cols-5'>
             {!filteredBlogPosts.length && (
               <div className='absolute flex flex-col items-center justify-start text-center transform -translate-x-1/2 left-1/2'>
                 <BiSad
