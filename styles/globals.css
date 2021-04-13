@@ -12,6 +12,10 @@
   .btn-blue {
     @apply px-4 py-2 font-bold text-white bg-blue-500 rounded hover:bg-blue-700;
   }
+
+  .btn-white {
+    @apply px-2 py-2 font-medium text-white transition-all duration-500 bg-white border border-white rounded-md bg-opacity-30 md:bg-opacity-20 md:px-4 border-opacity-40 hover:bg-white hover:bg-opacity-50 hover:border-opacity-70 text-opacity-70 hover:text-dark hover:text-opacity-95;
+  }
 }
 
 @layer base {
