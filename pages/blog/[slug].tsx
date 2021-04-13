@@ -8,6 +8,7 @@ import {
   InferGetStaticPropsType,
 } from 'next'
 import hydrate from 'next-mdx-remote/hydrate'
+import Head from 'next/head'
 import Image from 'next/image'
 import {formatDate} from 'utils/format-date'
 import {useScrollValue} from 'utils/hooks'
@@ -61,7 +62,9 @@ const BlogPost = ({
       initial='start'
       animate='end'>
       <ScrollProgressAnimation />
-
+      <Head>
+        <title>{title} | Indrajit Sarkar</title>
+      </Head>
       <ScrollToTop />
 
       <BlogLayout>
