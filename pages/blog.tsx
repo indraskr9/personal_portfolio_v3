@@ -78,7 +78,11 @@ const Blog = ({posts}: InferGetStaticPropsType<typeof getStaticProps>) => {
               transition: {delay: 0.7, ease: 'easeInOut'},
             }}
             variants={ItemVariants}
-            className='mt-10 text-6xl tracking-wide text-white select-none md:text-8xl'>
+            className='mt-10 text-6xl font-semibold tracking-widest text-white select-none md:text-8xl'
+            style={{
+              WebkitTextFillColor: 'transparent',
+              WebkitTextStroke: '2px rgba(255, 255, 255, 0.671)',
+            }}>
             BLOGS
           </motion.h1>
 
