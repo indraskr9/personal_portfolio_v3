@@ -39,7 +39,7 @@ export const BlogPostCard: React.FC<Props> = ({
   return (
     <motion.div
       variants={ItemVariants}
-      className={`h-full rounded-md bg-primaryDark bg-opacity-10 ${className} ${
+      className={`h-full rounded-md bg-primaryDark bg-opacity-10 hover:bg-opacity-20 hover:shadow-lg transition-all duration-500 border border-white border-opacity-10 hover:border-opacity-50 p-1 ${className} ${
         !featured && 'flex flex-col md:flex-row md:col-span-5'
       }`}>
       {image && (
