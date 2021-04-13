@@ -1,5 +1,6 @@
 import {ProjectTags} from 'components'
 import {motion} from 'framer-motion'
+import Image from 'next/image'
 import {BiCodeAlt} from 'react-icons/bi'
 import {HiOutlineExternalLink} from 'react-icons/hi'
 import {ProjectType} from 'utils/project-data'
@@ -37,11 +38,14 @@ export const FeaturedProjectCard: React.FC<Props> = ({
           />
         </div>
 
-        <img
-          className='object-cover w-full rounded-sm h-52 md:min-h-full'
-          src={`/images/${photoUrl}`}
-          alt='project thumbnail'
-        />
+        <div className='w-full rounded-sm h-52 md:min-h-full'>
+          <Image
+            src={`/images/${photoUrl}`}
+            alt={name}
+            objectFit='cover'
+            layout='fill'
+          />
+        </div>
       </div>
 
       <div className={`flex-1 p-3`}>
