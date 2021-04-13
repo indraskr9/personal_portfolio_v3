@@ -1,17 +1,16 @@
-import { MDXComponents, ScrollProgressAnimation, ScrollToTop } from 'components'
-import { motion, Variants } from 'framer-motion'
-import { BlogLayout } from 'layouts'
-import { getFileBySlug, getFiles } from 'lib/mdx'
+import {MDXComponents, ScrollProgressAnimation, ScrollToTop} from 'components'
+import {motion, Variants} from 'framer-motion'
+import {BlogLayout} from 'layouts'
+import {getFileBySlug, getFiles} from 'lib/mdx'
 import {
   GetStaticPaths,
   GetStaticPropsContext,
-  InferGetStaticPropsType
+  InferGetStaticPropsType,
 } from 'next'
 import hydrate from 'next-mdx-remote/hydrate'
 import Image from 'next/image'
-import { formatDate } from 'utils/format-date'
-import { useScrollValue } from 'utils/hooks'
-
+import {formatDate} from 'utils/format-date'
+import {useScrollValue} from 'utils/hooks'
 
 const ContainerVariants: Variants = {
   start: {
@@ -80,9 +79,11 @@ const BlogPost = ({
           <p className='mt-2 mb-5 font-mono text-sm font-bold text-white text-opacity-90'>
             {formatDate(publishedAt)} / {readingTime.text}
           </p>
-          <div className='relative w-full h-80 md:h-[500px]'>
-            <Image src={image} alt={title} objectFit='cover' layout='fill' />
-          </div>
+          {image && (
+            <div className='relative w-full h-80 md:h-[500px]'>
+              <Image src={image} alt={title} objectFit='cover' layout='fill' />
+            </div>
+          )}
         </motion.div>
 
         <motion.article

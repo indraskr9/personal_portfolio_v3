@@ -107,7 +107,7 @@ const Blog = ({posts}: InferGetStaticPropsType<typeof getStaticProps>) => {
 
           <motion.section className='grid gap-4 lg:gap-6 md:grid-cols-5'>
             {!filteredBlogPosts.length && (
-              <div className='absolute flex flex-col items-center justify-start text-center transform -translate-x-1/2 left-1/2'>
+              <div className='absolute flex flex-col items-center justify-start w-full text-center transform -translate-x-1/2 left-1/2'>
                 <BiSad
                   className='mb-2 text-center text-white text-opacity-50 animate-pulse'
                   size={40}
@@ -119,7 +119,6 @@ const Blog = ({posts}: InferGetStaticPropsType<typeof getStaticProps>) => {
               </div>
             )}
             {filteredBlogPosts.map((post, idx) => {
-              // not randomizing first 2 featured post
               if (idx < 2) {
                 return (
                   <BlogPostCard
@@ -131,13 +130,7 @@ const Blog = ({posts}: InferGetStaticPropsType<typeof getStaticProps>) => {
                   />
                 )
               }
-              return (
-                <BlogPostCard
-                  key={post.slug}
-                  className={idx % 2 === 0 ? 'md:col-span-3' : 'md:col-span-2'}
-                  {...post}
-                />
-              )
+              return <BlogPostCard key={post.slug} {...post} />
             })}
           </motion.section>
         </BlogLayout>
