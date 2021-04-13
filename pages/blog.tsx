@@ -5,7 +5,6 @@ import {FrontMatterData, getAllFilesFrontMatter} from 'lib/mdx'
 import {debounce} from 'lodash'
 import {InferGetStaticPropsType} from 'next'
 import Head from 'next/head'
-import Link from 'next/link'
 import {useCallback, useState} from 'react'
 import {BiSad} from 'react-icons/bi'
 import {FiSearch} from 'react-icons/fi'
@@ -72,18 +71,17 @@ const Blog = ({posts}: InferGetStaticPropsType<typeof getStaticProps>) => {
         initial='start'
         animate='end'>
         <BlogLayout>
-          <Link href='/blog'>
-            <motion.h1
-              initial={{opacity: 0}}
-              animate={{
-                opacity: 1,
-                transition: {delay: 0.7, ease: 'easeInOut'},
-              }}
-              variants={ItemVariants}
-              className='mt-10 text-6xl tracking-wide text-white cursor-pointer md:text-8xl'>
-              BLOGS
-            </motion.h1>
-          </Link>
+          <motion.h1
+            initial={{opacity: 0}}
+            animate={{
+              opacity: 1,
+              transition: {delay: 0.7, ease: 'easeInOut'},
+            }}
+            variants={ItemVariants}
+            className='mt-10 text-6xl tracking-wide text-white select-none md:text-8xl'>
+            BLOGS
+          </motion.h1>
+
           <motion.div
             initial={{opacity: 0, scaleX: 1.2}}
             animate={{
