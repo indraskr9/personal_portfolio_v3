@@ -1,13 +1,14 @@
-import {BlogPostCard} from 'components'
+import {BlogPostCard, Nav} from 'components'
 import {motion, Variants} from 'framer-motion'
 import {BlogLayout} from 'layouts'
 import {FrontMatterData, getAllFilesFrontMatter} from 'lib/mdx'
 import {debounce} from 'lodash'
 import {InferGetStaticPropsType} from 'next'
 import Head from 'next/head'
+import Link from 'next/link'
 import {useCallback, useState} from 'react'
 import {BiSad} from 'react-icons/bi'
-import {FiSearch} from 'react-icons/fi'
+import {FiHome, FiSearch} from 'react-icons/fi'
 
 const ContainerVariants: Variants = {
   start: {
@@ -65,6 +66,19 @@ const Blog = ({posts}: InferGetStaticPropsType<typeof getStaticProps>) => {
       <Head>
         <title>Blog | Indrajit Sarkar</title>
       </Head>
+      <div className='fixed top-0 right-0 z-10 select-none md:hidden'>
+        <Nav />
+      </div>
+      <Link href='/'>
+        <motion.button
+          title='Go home'
+          exit={{display: 'none'}}
+          initial={{translateX: -50}}
+          animate={{translateX: 1, transition: {type: 'tween', delay: 2.5}}}
+          className='fixed left-0 z-10 hidden px-3 py-2 rounded-r-lg md:block bottom-3 text-dark bg-primary'>
+          <FiHome size={20} />
+        </motion.button>
+      </Link>
       <motion.div
         exit='exit'
         variants={ContainerVariants}
