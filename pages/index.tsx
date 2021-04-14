@@ -51,33 +51,33 @@ export default function Home() {
         variants={ContainerVariants}
         initial='start'
         animate='end'
-        className='container mx-auto w-screen min-h-screen flex flex-col justify-center items-center'>
+        className='container flex flex-col items-center justify-center w-screen min-h-screen mx-auto'>
         <motion.img
           // style={{boxShadow: '-25px -15px 68px 50px rgba(96, 131, 255, 0.1)'}}
           variants={ItemVariants}
-          className='h-28 w-2h-28 rounded-full mb-3 transition-shadow duration-500'
+          className='mb-3 transition-shadow duration-500 rounded-full h-28 w-2h-28'
           src='/images/me.jpg'
           alt='Indrajit Sarkar'
         />
-        <motion.p variants={ItemVariants} className='text-primary font-mono'>
+        <motion.p variants={ItemVariants} className='font-mono text-primary'>
           Hello, my name is
         </motion.p>
         <motion.h1
           variants={ItemVariants}
-          className='font-bold text-5xl mb-3 tracking-normal select-text opacity-100'>
+          className='mb-3 text-5xl font-bold tracking-normal opacity-100 select-text'>
           Indrajit Sarkar.
         </motion.h1>
         <motion.p
           variants={ItemVariants}
-          className='opacity-50 text-center w-10/12 max-w-screen-sm'>
-          I’m a student, currently pursuing BCA. I love building/designing
-          websites and applications. Currently working with various web
-          technologies.
+          className='w-10/12 max-w-screen-sm text-center opacity-50'>
+          I’m a student and developer, currently pursuing BCA. I love
+          building/designing websites and applications. Currently working with
+          various web technologies.
         </motion.p>
         <Link href='/contact'>
           <motion.button
             variants={ItemVariants}
-            className='mt-5 bg-primary text-primaryDark px-3 py-2 rounded-full font-medium'>
+            className='px-3 py-2 mt-5 font-medium rounded-full bg-primary text-primaryDark'>
             Get in touch
           </motion.button>
         </Link>
