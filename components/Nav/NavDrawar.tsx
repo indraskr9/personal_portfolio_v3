@@ -1,5 +1,6 @@
 import {UiContext} from 'context/ui'
 import {motion, Variants} from 'framer-motion'
+import {useScrollLock} from 'hooks/useScrollLock'
 import Link from 'next/link'
 import {useRouter} from 'next/router'
 import {useContext} from 'react'
@@ -48,6 +49,7 @@ const ItemVariants: Variants = {
 const NavDrawar = () => {
   const {isNavOpen, setIsNavOpen} = useContext(UiContext)
   const router = useRouter()
+  useScrollLock(isNavOpen)
 
   const NavLink = ({title, link}: {title: string; link: string}) => (
     <motion.h1
