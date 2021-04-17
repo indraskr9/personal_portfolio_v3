@@ -4,7 +4,7 @@ import NavDrawar from './NavDrawar'
 import NavOpenButton from './NavOpenButton'
 
 export const Nav = () => {
-  const {isNavOpen, setIsNavOpen} = useContext(UiContext)
+  const {isNavOpen} = useContext(UiContext)
 
   return (
     <>
@@ -14,11 +14,8 @@ export const Nav = () => {
         style={{zIndex: 5}}
         className={`${
           isNavOpen &&
-          'bg-dark opacity-80 absolute w-screen min-h-screen transition duration-500 ease-in-out'
+          'bg-dark opacity-80 absolute w-screen h-screen max-h-screen transition duration-500 ease-in-out'
         }`}
-        onClick={() => {
-          isNavOpen && setIsNavOpen(!isNavOpen)
-        }}
       />
       <NavDrawar />
     </>

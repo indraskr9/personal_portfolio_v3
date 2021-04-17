@@ -1,9 +1,10 @@
 import {UiContext} from 'context/ui'
 import {motion, Variants} from 'framer-motion'
+import {useOnClickOutside} from 'hooks/useClickOutside'
 import {useScrollLock} from 'hooks/useScrollLock'
 import Link from 'next/link'
 import {useRouter} from 'next/router'
-import {useContext} from 'react'
+import {useContext, useRef} from 'react'
 import {AiFillGithub, AiFillLinkedin, AiOutlineInstagram} from 'react-icons/ai'
 import {HiDocumentDownload} from 'react-icons/hi'
 
@@ -49,7 +50,10 @@ const ItemVariants: Variants = {
 const NavDrawar = () => {
   const {isNavOpen, setIsNavOpen} = useContext(UiContext)
   const router = useRouter()
+  const ref = useRef<HTMLDivElement | null>(null)
+
   useScrollLock(isNavOpen)
+  useOnClickOutside(ref, () => setIsNavOpen(false))
 
   const NavLink = ({title, link}: {title: string; link: string}) => (
     <motion.h1
@@ -64,8 +68,9 @@ const NavDrawar = () => {
 
   return (
     <motion.div
-      onPanStart={e => setIsNavOpen(!isNavOpen)}
+      onPanStart={() => setIsNavOpen(!isNavOpen)}
       initial={false}
+      ref={ref}
       animate={isNavOpen ? 'show' : 'hide'}
       variants={ContainerVariants}
       id='nav-drawar'
