@@ -1,6 +1,6 @@
 import {UiContext} from 'context/ui'
 import {useContext} from 'react'
-import NavDrawar from './NavDrawar'
+import NavDrawer from './NavDrawer'
 import NavOpenButton from './NavOpenButton'
 
 export const Nav = () => {
@@ -17,7 +17,7 @@ export const Nav = () => {
           'bg-dark opacity-80 absolute w-screen h-screen max-h-screen transition duration-500 ease-in-out'
         }`}
       />
-      <NavDrawar />
+      <NavDrawer />
     </>
   )
 }

@@ -47,7 +47,7 @@ const ItemVariants: Variants = {
   },
 }
 
-const NavDrawar = () => {
+const NavDrawer = () => {
   const {isNavOpen, setIsNavOpen} = useContext(UiContext)
   const router = useRouter()
   const ref = useRef<HTMLDivElement | null>(null)
@@ -143,4 +143,4 @@ const NavDrawar = () => {
   )
 }
 
-export default NavDrawar
+export default NavDrawer
